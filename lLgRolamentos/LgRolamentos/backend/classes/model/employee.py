@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from backend.classes.model.role import Role
-# other comment
 
 class Employee(models.Model):
     name = models.CharField(max_length=50, null=False)
