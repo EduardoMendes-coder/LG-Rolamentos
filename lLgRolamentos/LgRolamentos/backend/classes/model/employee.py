@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from backend.classes.model.role import Role
 
 
 class Employee(models.Model):
@@ -10,7 +11,7 @@ class Employee(models.Model):
     rg = models.CharField(max_length=12, default=None, unique=True)
     pis = models.CharField(max_length=12, default=None, unique=True)
     is_active = models.BooleanField(default=True)
-    role = None
+    role = models.ForeignKey(Role, on_delete=models.CASCADE)
     nationality = models.CharField(max_length=50)
     salary = models.FloatField(default=None)
     phone = models.CharField(max_length=20, default=None, unique=True)

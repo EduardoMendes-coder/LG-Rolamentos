@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Manager(models.Model):
     name = models.CharField(max_length=50, null=False)
     email = models.CharField(max_length=50, dafault=None, unique=True)
