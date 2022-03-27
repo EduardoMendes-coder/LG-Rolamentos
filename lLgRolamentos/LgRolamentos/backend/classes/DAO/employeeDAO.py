@@ -25,6 +25,7 @@ class EmployeeDAO:
                 employee.phone = request.POST.get('phone')
                 employee.sex = request.POST.get('sex')
                 employee.hired_at = request.POST.get('hired_at')
+                employee.is_active = request.POST.get('is_active')
 
                 response = EmployeeDAO.validate_and_edit_parameters(employee=employee)
                 return JsonResponse(response)
@@ -38,44 +39,49 @@ class EmployeeDAO:
         employee.salary = casting.cast_salary(employee.salary)
         employee.age = casting.cast_age(employee.age)
         employee.hired_at = casting.cast_hired_at(employee.hired_at)
+        employee.is_active = casting.cast_is_active(employee.is_active)
 
         try:
-            if employee.role and isinstance(employee.role, str):
+            if employee.role is not None and isinstance(employee.role, str):
                 Employee.objects.filter(id=employee.id).update(role=employee.role)
                 updated = True
-            if employee.name and isinstance(employee.name, str):
+            if employee.name is not None and isinstance(employee.name, str):
                 Employee.objects.filter(id=employee.id).update(name=employee.name)
                 updated = True
-            if employee.age and isinstance(employee.age, int):
+            if employee.age is not None and isinstance(employee.age, int):
                 Employee.objects.filter(id=employee.id).update(age=employee.age)
                 updated = True
-            if employee.email and isinstance(employee.email, str):
+            if employee.email is not None and isinstance(employee.email, str):
                 Employee.objects.filter(id=employee.id).update(email=employee.email)
                 updated = True
-            if employee.address and isinstance(employee.address, str):
+            if employee.address is not None and isinstance(employee.address, str):
                 Employee.objects.filter(id=employee.id).update(address=employee.address)
                 updated = True
-            if employee.rg and isinstance(employee.rg, str):
+            if employee.rg is not None and isinstance(employee.rg, str):
                 Employee.objects.filter(id=employee.id).update(rg=employee.rg)
                 updated = True
-            if employee.pis and isinstance(employee.pis, str):
+            if employee.pis is not None and isinstance(employee.pis, str):
                 Employee.objects.filter(id=employee.id).update(pis=employee.pis)
                 updated = True
-            if employee.nationality and isinstance(employee.nationality, str):
+            if employee.nationality is not None and isinstance(employee.nationality, str):
                 Employee.objects.filter(id=employee.id).update(nationality=employee.nationality)
                 updated = True
-            if employee.salary and isinstance(employee.salary, (int, float)):
+            if employee.salary is not None and isinstance(employee.salary, (int, float)):
                 Employee.objects.filter(id=employee.id).update(salary=employee.salary)
                 updated = True
-            if employee.phone and isinstance(employee.phone, str):
+            if employee.phone is not None and isinstance(employee.phone, str):
                 Employee.objects.filter(id=employee.id).update(phone=employee.phone)
                 updated = True
-            if employee.sex and isinstance(employee.sex, str):
+            if employee.sex is not None and isinstance(employee.sex, str):
                 Employee.objects.filter(id=employee.id).update(sex=employee.sex)
                 updated = True
-            if employee.hired_at and isinstance(employee.hired_at, datetime):
+            if employee.hired_at is not None and isinstance(employee.hired_at, datetime):
                 Employee.objects.filter(id=employee.id).update(hired_at=employee.hired_at)
                 updated = True
+            if employee.is_active is not None and isinstance(employee.is_active, bool):
+                Employee.objects.filter(id=employee.id).update(is_active=employee.is_active)
+                updated = True
+
         except Exception as e:
             msg = e
         else:

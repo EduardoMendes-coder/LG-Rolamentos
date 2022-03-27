@@ -26,3 +26,14 @@ def cast_age(age):
         return age
     else:
         return new_age
+
+
+def cast_is_active(is_active):
+    is_active = is_active.lower()
+
+    if is_active == 'true':
+        is_active = True
+    elif is_active == 'false':
+        is_active = False
+
+    return is_active
