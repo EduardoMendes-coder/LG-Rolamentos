@@ -17,4 +17,4 @@ class Employee(models.Model):
     sex = models.CharField(max_length=20, default=None)
     created_at = models.DateTimeField(default=timezone.now())
     hired_at = models.DateTimeField(default=None)
-    updated_at = models.DateTimeField(deafult=None)
+    updated_at = models.DateTimeField(default=None)
