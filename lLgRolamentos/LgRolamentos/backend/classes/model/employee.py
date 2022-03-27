@@ -19,5 +19,6 @@ class Employee(models.Model):
     created_at = models.DateTimeField(default=timezone.now(), null=True)
     hired_at = models.DateTimeField(default=None, null=True)
     updated_at = models.DateTimeField(default=None, null=True)
+
     def __repr__(self):
         return f'{self.name}'
