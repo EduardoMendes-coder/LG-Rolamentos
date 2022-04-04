@@ -29,11 +29,12 @@ def cast_age(age):
 
 
 def cast_is_active(is_active):
-    is_active = is_active.lower()
+    if is_active is not None:
+        is_active = is_active.lower()
 
-    if is_active == 'true':
-        is_active = True
-    elif is_active == 'false':
-        is_active = False
+        if is_active == 'true':
+            is_active = True
+        elif is_active == 'false':
+            is_active = False
 
     return is_active
