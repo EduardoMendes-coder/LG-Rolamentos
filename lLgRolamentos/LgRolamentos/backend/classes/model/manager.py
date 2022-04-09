@@ -4,7 +4,7 @@ from django.utils import timezone
 
 class Manager(models.Model):
     name = models.CharField(max_length=50, null=False)
-    email = models.CharField(max_length=50, default=None, unique=True, null=True)
+    email = models.CharField(max_length=50, default=None, unique=True, null=False)
     address = models.CharField(max_length=50, default=None, null=True)
     pis = models.CharField(max_length=12, default=None, unique=True, null=True)
     is_active = models.BooleanField(default=True, null=True)

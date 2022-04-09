@@ -1,6 +1,7 @@
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.utils import timezone
 from backend.classes.model.employee import Employee
+from backend.classes.model.manager import Manager
 from backend.classes.model.role import Role
 from datetime import datetime
 from backend.utils import casting
@@ -11,13 +12,17 @@ class ManagerDAO:
     @staticmethod
     def edit_employee(request):
         if request.method == 'POST':
+            manager = Manager()
             employee = Employee()
             role = Role()
 
+            manager.id = request.POST.get('manager_id')
             employee.id = request.POST.get('id')
-            valid_id = Employee.objects.filter(id=employee.id, is_active=True)
 
-            if valid_id:
+            valid_manager = Manager.objects.filter(id=manager.id, is_active=True)
+            valid_employee = Employee.objects.filter(id=employee.id, is_active=True)
+
+            if valid_manager and valid_employee:  # manager and employee exist and are they active?
                 role.id = request.POST.get('role')
                 employee.role = role
                 employee.name = request.POST.get('name')
@@ -36,7 +41,7 @@ class ManagerDAO:
                 response = ManagerDAO.validate_and_edit_parameters(employee=employee)
                 return JsonResponse(response)
             else:
-                return JsonResponse({'status': 400, 'msg': 'invalid_id or inactive'})
+                return JsonResponse({'status': 400, 'msg': 'manager (and / or) employee are (invalid / inactive)'})
 
     @staticmethod
     def validate_and_edit_parameters(employee):
@@ -93,7 +98,7 @@ class ManagerDAO:
             msg = e
             status = 400
         else:
-            employee.name = Employee.objects.get(id=employee.id).name if not employee.name else employee.name
+            employee.name = Employee.objects.get(id=employee.id).name if not employee.name else employee.name.title()
             msg = f'Employee {employee.name} has been successfully edited!'
             status = 200
         finally:
@@ -151,5 +156,3 @@ class ManagerDAO:
         return JsonResponse({
             'teste': response
         })
-
-
