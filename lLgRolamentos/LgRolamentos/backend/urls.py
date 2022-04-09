@@ -1,9 +1,8 @@
 from django.urls import path
-from backend.classes.DAO.employeeDAO import EmployeeDAO
-from .classes.DAO.employeeDAO import EmployeeDAO
+from .classes.DAO.managerDAO import ManagerDAO
 
 urlpatterns = [
- path('add/', EmployeeDAO.add_employee),
- path('list/', EmployeeDAO.list_employees),
- path('edit/', EmployeeDAO.edit_employee),
+ path('add/', ManagerDAO.add_employee),
+ path('list/', ManagerDAO.list_employees),
+ path('edit/', ManagerDAO.edit_employee),
 ]

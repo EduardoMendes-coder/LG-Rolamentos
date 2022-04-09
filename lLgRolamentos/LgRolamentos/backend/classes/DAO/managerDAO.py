@@ -7,7 +7,7 @@ from backend.utils import casting
 from backend.classes.model.sex import Sex
 
 
-class EmployeeDAO:
+class ManagerDAO:
     @staticmethod
     def edit_employee(request):
         if request.method == 'POST':
@@ -18,29 +18,30 @@ class EmployeeDAO:
             valid_id = Employee.objects.filter(id=employee.id, is_active=True)
 
             if valid_id:
-                role.id = request.POST.get('role').strip()
+                role.id = request.POST.get('role')
                 employee.role = role
-                employee.name = request.POST.get('name').strip()
-                employee.age = request.POST.get('age').strip()
-                employee.email = request.POST.get('email').strip()
-                employee.address = request.POST.get('address').strip()
-                employee.rg = request.POST.get('rg').strip()
-                employee.pis = request.POST.get('pis').strip()
-                employee.nationality = request.POST.get('nationality').strip()
-                employee.salary = request.POST.get('salary').strip()
-                employee.phone = request.POST.get('phone').strip()
-                employee.sex = request.POST.get('sex').strip()
-                employee.hired_at = request.POST.get('hired_at').strip()
-                employee.is_active = request.POST.get('is_active').strip()
+                employee.name = request.POST.get('name')
+                employee.age = request.POST.get('age')
+                employee.email = request.POST.get('email')
+                employee.address = request.POST.get('address')
+                employee.rg = request.POST.get('rg')
+                employee.pis = request.POST.get('pis')
+                employee.nationality = request.POST.get('nationality')
+                employee.salary = request.POST.get('salary')
+                employee.phone = request.POST.get('phone')
+                employee.sex = request.POST.get('sex')
+                employee.hired_at = request.POST.get('hired_at')
+                employee.is_active = request.POST.get('is_active')
 
-                response = EmployeeDAO.validate_and_edit_parameters(employee=employee)
+                response = ManagerDAO.validate_and_edit_parameters(employee=employee)
                 return JsonResponse(response)
             else:
-                return JsonResponse({'msg': 'invalid_id or inactive'})
+                return JsonResponse({'status': 400, 'msg': 'invalid_id or inactive'})
 
     @staticmethod
     def validate_and_edit_parameters(employee):
         msg = None
+        status = None
         updated = False
         employee.salary = casting.cast_salary(employee.salary)
         employee.age = casting.cast_age(employee.age)
@@ -52,34 +53,34 @@ class EmployeeDAO:
                 Employee.objects.filter(id=employee.id).update(role=employee.role)
                 updated = True
             if employee.name and isinstance(employee.name, str):
-                Employee.objects.filter(id=employee.id).update(name=employee.name.title())
+                Employee.objects.filter(id=employee.id).update(name=employee.name.title().strip())
                 updated = True
             if employee.age and isinstance(employee.age, int):
                 Employee.objects.filter(id=employee.id).update(age=employee.age)
                 updated = True
             if employee.email and isinstance(employee.email, str):
-                Employee.objects.filter(id=employee.id).update(email=employee.email.lower())
+                Employee.objects.filter(id=employee.id).update(email=employee.email.lower().strip())
                 updated = True
             if employee.address and isinstance(employee.address, str):
-                Employee.objects.filter(id=employee.id).update(address=employee.address.title())
+                Employee.objects.filter(id=employee.id).update(address=employee.address.title().strip())
                 updated = True
             if employee.rg and isinstance(employee.rg, str) and employee.rg.isnumeric():
-                Employee.objects.filter(id=employee.id).update(rg=employee.rg)
+                Employee.objects.filter(id=employee.id).update(rg=employee.rg.strip())
                 updated = True
             if employee.pis and isinstance(employee.pis, str) and employee.pis.isnumeric():
-                Employee.objects.filter(id=employee.id).update(pis=employee.pis)
+                Employee.objects.filter(id=employee.id).update(pis=employee.pis.strip())
                 updated = True
             if employee.nationality and isinstance(employee.nationality, str):
-                Employee.objects.filter(id=employee.id).update(nationality=employee.nationality.title())
+                Employee.objects.filter(id=employee.id).update(nationality=employee.nationality.title().strip())
                 updated = True
             if employee.salary and isinstance(employee.salary, (int, float)):
                 Employee.objects.filter(id=employee.id).update(salary=employee.salary)
                 updated = True
             if employee.phone and isinstance(employee.phone, str) and employee.phone.isnumeric():
-                Employee.objects.filter(id=employee.id).update(phone=employee.phone)
+                Employee.objects.filter(id=employee.id).update(phone=employee.phone.strip())
                 updated = True
-            if employee.sex and isinstance(employee.sex, str) and EmployeeDAO.validate_sex(employee.sex):
-                Employee.objects.filter(id=employee.id).update(sex=employee.sex.lower())
+            if employee.sex and isinstance(employee.sex, str) and ManagerDAO.validate_sex(employee.sex):
+                Employee.objects.filter(id=employee.id).update(sex=employee.sex.lower().strip())
                 updated = True
             if employee.hired_at and isinstance(employee.hired_at, datetime):
                 Employee.objects.filter(id=employee.id).update(hired_at=employee.hired_at)
@@ -90,14 +91,19 @@ class EmployeeDAO:
 
         except Exception as e:
             msg = e
+            status = 400
         else:
             employee.name = Employee.objects.get(id=employee.id).name if not employee.name else employee.name
             msg = f'Employee {employee.name} has been successfully edited!'
+            status = 200
         finally:
             if updated:
                 Employee.objects.filter(id=employee.id).update(updated_at=timezone.now())
 
-            return {'msg': msg}
+            del employee
+            del updated
+
+            return {'status': status, 'msg': msg}
 
     @staticmethod
     def validate_sex(sex):
