@@ -41,7 +41,12 @@ class ManagerDAO:
                 response = ManagerDAO.validate_and_edit_parameters(employee=employee)
                 return JsonResponse(response)
             else:
-                return JsonResponse({'status': 400, 'msg': 'manager (and / or) employee are (invalid / inactive)'})
+                return JsonResponse(
+                    {
+                        'status': 400,
+                        'msg': 'manager (and / or) employee are (invalid / inactive)'
+                    }
+                )
 
     @staticmethod
     def validate_and_edit_parameters(employee):
@@ -104,11 +109,12 @@ class ManagerDAO:
         finally:
             if updated:
                 Employee.objects.filter(id=employee.id).update(updated_at=timezone.now())
+            del employee, updated
 
-            del employee
-            del updated
-
-            return {'status': status, 'msg': msg}
+            return {
+                'status': status,
+                'msg': msg
+            }
 
     @staticmethod
     def validate_sex(sex):

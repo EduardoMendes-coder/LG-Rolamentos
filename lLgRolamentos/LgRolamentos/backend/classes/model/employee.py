@@ -21,4 +21,7 @@ class Employee(models.Model):
     updated_at = models.DateTimeField(default=None, null=True)
 
     def __repr__(self):
-        return f'{self.name}'
+        return f'{self.name} | {self.age} | {self.email} | {self.address} | {self.rg} | {self.pis} | {self.is_active} | ' \
+               f'{self.role.__repr__()} | {self.nationality} | ${self.salary} | {self.phone} | {self.sex} | {self.created_at} | ' \
+               f'{self.hired_at} | {self.updated_at}'
+

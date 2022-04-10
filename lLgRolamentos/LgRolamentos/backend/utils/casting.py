@@ -38,3 +38,14 @@ def cast_is_active(is_active):
             is_active = False
 
     return is_active
+
+
+def strtime_to_datetime(str_time):
+    if str_time and isinstance(str_time, str):
+        try:
+            formatted_time = datetime.strptime(str_time, '%Y-%m-%d')
+        except Exception as e:
+            print(e)
+            return str_time
+        else:
+            return formatted_time
