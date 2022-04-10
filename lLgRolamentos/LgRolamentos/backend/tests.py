@@ -10,22 +10,13 @@ from django.utils import timezone
 
 
 '''def create_test():
-        endpoint = 'http://127.0.0.1:8000/list/'
+        endpoint = 'http://127.0.0.1:8000/teste/'
 
         emp = {
-            'name': 'nameteste',
-            'age': 12,
-            'email': 'qualquer@gmail.com',
-            'address': 'addresstest',
-            'rg': '454554',
-            'pis': '1111',
-            'role': 1,
-            'is_active': True,
-            'nationality': 'brasileiro',
-            'salary': 3500,
-            'phone': '2223333',
-            'sex': 'MASCULINO',
-
+            "name": "Advertencia",
+            "employee": {"id": 17},
+            "manager": {"id": 28},
+            "note": "func cagou o pau"
         }
         #response = requests.post(endpoint, emp)
         response = requests.get(endpoint)
@@ -37,7 +28,7 @@ from django.utils import timezone
 
 create_test()'''
 
-def exec_test_edit():
+'''def exec_test_edit():
     endpoint = 'http://127.0.0.1:8000/edit/'
     data = {
         'id': 17,
@@ -58,4 +49,4 @@ def exec_test_edit():
 
 
 if __name__ == '__main__':
-    exec_test_edit()
+    exec_test_edit()'''
