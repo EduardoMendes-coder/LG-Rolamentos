@@ -56,7 +56,7 @@ class ManagerDAO:
         employee.salary = casting.cast_salary(employee.salary)
         employee.age = casting.cast_age(employee.age)
         employee.hired_at = casting.cast_hired_at(employee.hired_at)
-        employee.is_active = casting.cast_is_active(employee.is_active)
+        employee.is_active = casting.cast_to_bool(employee.is_active)
 
         try:
             if employee.role and isinstance(employee.role, Role) and Role.objects.filter(id=employee.role.id, is_active=True):
@@ -95,7 +95,7 @@ class ManagerDAO:
             if employee.hired_at and isinstance(employee.hired_at, datetime):
                 Employee.objects.filter(id=employee.id).update(hired_at=employee.hired_at)
                 updated = True
-            if employee.is_active and isinstance(employee.is_active, bool):
+            if employee.is_active is not None and isinstance(employee.is_active, bool):
                 Employee.objects.filter(id=employee.id).update(is_active=employee.is_active)
                 updated = True
 

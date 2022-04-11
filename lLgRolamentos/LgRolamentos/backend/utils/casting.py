@@ -28,7 +28,7 @@ def cast_age(age):
         return new_age
 
 
-def cast_is_active(is_active):
+def cast_to_bool(is_active):
     if is_active is not None:
         is_active = is_active.lower()
 
