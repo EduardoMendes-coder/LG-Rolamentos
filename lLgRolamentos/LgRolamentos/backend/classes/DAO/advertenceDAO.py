@@ -1,6 +1,5 @@
 from urllib import request
 
-import objects as objects
 from django.http import JsonResponse
 from django.utils import timezone
 from datetime import datetime
