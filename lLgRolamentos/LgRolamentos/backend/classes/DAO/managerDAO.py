@@ -7,7 +7,6 @@ from datetime import datetime
 from backend.utils import casting
 from backend.classes.model.sex import Sex
 
-
 class ManagerDAO:
     @staticmethod
     def edit_employee(request):

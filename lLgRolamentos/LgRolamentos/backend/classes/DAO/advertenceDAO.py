@@ -47,7 +47,6 @@ class AdvertenceDAO:
             advertence = Advertence()
 
             advertence.id = request.POST.get('id')
-
             manager.id = request.POST.get('manager')
             employee.id = request.POST.get('employee')
 

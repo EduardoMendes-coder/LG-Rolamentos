@@ -1,6 +1,7 @@
 from django.urls import path
 from .classes.DAO.advertenceDAO import AdvertenceDAO
 from .classes.DAO.managerDAO import ManagerDAO
+from .classes.DAO.meritDAO import MeritDAO
 from .classes.DAO.presence_controlDAO import PresenceControlDAO
 
 urlpatterns = [
@@ -11,5 +12,7 @@ urlpatterns = [
  path('presences/', PresenceControlDAO.presence_control),  # post method
  path('add-advertence/', AdvertenceDAO.add_advertence),
  path('list-advertence/', AdvertenceDAO.list_advertence),
- path('edit-advertence/', AdvertenceDAO.edit_advertence)
+ path('edit-advertence/', AdvertenceDAO.edit_advertence),
+ path('add-merit/', MeritDAO.add_merit),
+ path('edit-merit/', MeritDAO.edit_merit)
 ]
