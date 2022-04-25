@@ -7,7 +7,7 @@ import datetime
 from django.shortcuts import get_object_or_404
 
 
-class PresenceControlDAO:
+class PresenceControlViews:
     @staticmethod
     def presence_control(request, employee_id=None, start_date=None, end_date=None):
         if request.method == 'GET':

@@ -9,7 +9,7 @@ from backend.classes.model.sex import Sex
 from django.shortcuts import get_object_or_404
 
 
-class ManagerDAO:
+class ManagerViews:
     @staticmethod
     def edit_employee(request):
         if request.method == 'POST':

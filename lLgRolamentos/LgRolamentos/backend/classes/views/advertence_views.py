@@ -6,10 +6,10 @@ from datetime import datetime
 from backend.classes.model.advertence import Advertence
 from backend.classes.model.manager import Manager
 from backend.classes.model.employee import Employee
-from backend.classes.DAO.managerDAO import ManagerDAO
+from backend.classes.views.manager_views import ManagerViews
 
 
-class AdvertenceDAO:
+class AdvertenceViews:
 
     @staticmethod
     def add_advertence(request):

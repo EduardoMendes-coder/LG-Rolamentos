@@ -1,18 +1,18 @@
 from django.urls import path
-from .classes.DAO.advertenceDAO import AdvertenceDAO
-from .classes.DAO.managerDAO import ManagerDAO
-from .classes.DAO.meritDAO import MeritDAO
-from .classes.DAO.presence_controlDAO import PresenceControlDAO
+from .classes.views.advertence_views import AdvertenceViews
+from .classes.views.manager_views import ManagerViews
+from .classes.views.merit_views import MeritViews
+from .classes.views.presence_control_views import PresenceControlViews
 
 urlpatterns = [
- path('add/', ManagerDAO.add_employee),
- path('list/', ManagerDAO.list_employees),
- path('edit/', ManagerDAO.edit_employee),
- path('presences/<int:employee_id>/<str:start_date>/<str:end_date>/', PresenceControlDAO.presence_control),  # get method
- path('presences/', PresenceControlDAO.presence_control),  # post method
- path('add-advertence/', AdvertenceDAO.add_advertence),
- path('list-advertence/', AdvertenceDAO.list_advertence),
- path('edit-advertence/', AdvertenceDAO.edit_advertence),
- path('add-merit/', MeritDAO.add_merit),
- path('edit-merit/', MeritDAO.edit_merit)
+ path('add/', ManagerViews.add_employee),
+ path('list/', ManagerViews.list_employees),
+ path('edit/', ManagerViews.edit_employee),
+ path('presences/<int:employee_id>/<str:start_date>/<str:end_date>/', PresenceControlViews.presence_control),  # get method
+ path('presences/', PresenceControlViews.presence_control),  # post method
+ path('add-advertence/', AdvertenceViews.add_advertence),
+ path('list-advertence/', AdvertenceViews.list_advertence),
+ path('edit-advertence/', AdvertenceViews.edit_advertence),
+ path('add-merit/', MeritViews.add_merit),
+ path('edit-merit/', MeritViews.edit_merit)
 ]

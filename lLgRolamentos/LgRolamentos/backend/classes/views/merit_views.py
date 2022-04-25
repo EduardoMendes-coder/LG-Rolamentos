@@ -7,7 +7,7 @@ from backend.classes.model.manager import Manager
 from backend.classes.model.employee import Employee
 
 
-class MeritDAO:
+class MeritViews:
 
     @staticmethod
     def add_merit(request):
