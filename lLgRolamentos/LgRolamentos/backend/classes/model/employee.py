@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from backend.classes.model.role import Role
+from django import forms
 
 
 class Employee(models.Model):
@@ -44,3 +45,11 @@ class Employee(models.Model):
             'updated_at': self.updated_at
         }
 
+
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = [
+            'name', 'age', 'email', 'address', 'rg', 'pis', 'is_active',
+            'role', 'nationality', 'salary', 'phone', 'sex', 'hired_at'
+        ]
