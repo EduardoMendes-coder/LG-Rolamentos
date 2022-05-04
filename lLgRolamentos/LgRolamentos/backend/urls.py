@@ -3,7 +3,6 @@ from .classes.views.advertence_views import AdvertenceViews
 from .classes.views.manager_views import ManagerViews
 from .classes.views.merit_views import MeritViews
 from .classes.views.presence_control_views import PresenceControlViews
-from .utils.cpf_validator import validate
 
 urlpatterns = [
  path('add/', ManagerViews.add_employee),

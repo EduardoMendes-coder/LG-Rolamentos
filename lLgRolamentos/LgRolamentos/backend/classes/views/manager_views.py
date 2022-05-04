@@ -4,7 +4,7 @@ from backend.classes.model.employee import Employee, EmployeeForm
 from backend.classes.model.manager import Manager
 from backend.classes.model.role import Role
 from datetime import datetime
-from backend.utils import casting
+from backend.utils import casting, sex_validator
 from backend.classes.model.sex import Sex
 from django.shortcuts import get_object_or_404
 
@@ -15,27 +15,18 @@ class ManagerViews:
         if request.method == 'POST':
             employee = get_object_or_404(Employee, id=id)
             employee_form = EmployeeForm(request.POST or None, instance=employee)
+            is_valid_sex = sex_validator.validate(request.POST.get('sex'))
 
-            if employee_form.is_valid():
+            if employee_form.is_valid() and is_valid_sex:
                 employee_form.save()
                 return JsonResponse({
                     'msg': 'OK: Successfully edited!',
                     'status': 200
                 })
             return JsonResponse({
-                'msg': 'ERROR: Could not edit',
+                'msg': 'ERROR: Could not edit' + str(employee_form),
                 'status': 400
             })
-
-    @staticmethod
-    def validate_sex(sex):
-        all_sex = (
-            Sex.MALE.value,
-            Sex.FEMALE.value,
-            Sex.OTHER.value
-        )
-
-        return True if sex.lower() in all_sex else False
 
     @staticmethod
     def add_employee(request):
