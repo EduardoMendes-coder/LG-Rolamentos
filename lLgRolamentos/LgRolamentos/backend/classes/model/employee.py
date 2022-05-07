@@ -1,4 +1,3 @@
-import employee as employee
 from django.db import models
 from django.utils import timezone
 from backend.classes.model.role import Role

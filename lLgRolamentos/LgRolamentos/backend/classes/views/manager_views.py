@@ -4,6 +4,7 @@ from backend.classes.model.manager import Manager, ManagerForm
 from backend.utils import casting, sex_validator
 from django.shortcuts import get_object_or_404
 
+
 class ManagerViews:
     @staticmethod
     def edit_employee(request, id):
@@ -51,7 +52,7 @@ class ManagerViews:
     @staticmethod
     def add_manager(request):
         manager_form = ManagerForm(request.POST)
-        if manager_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+        if manager_form.is_valid():
             manager_form.save()
             return JsonResponse(
                 {
@@ -62,7 +63,7 @@ class ManagerViews:
         return JsonResponse(
             {
                 'status': 400,
-                'msg': 'ERROR'
+                'msg': 'ERROR' + str(request.POST)
             }
         )
 
@@ -70,7 +71,7 @@ class ManagerViews:
     def edit_manager(request, id):
         manager = get_object_or_404(Manager, id=id)
         manager_form = ManagerForm(request.POST, instance=manager)
-        if manager_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+        if manager_form.is_valid():
             manager_form.save()
             return JsonResponse(
                 {

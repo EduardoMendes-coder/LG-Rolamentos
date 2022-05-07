@@ -16,7 +16,7 @@ class Merit(models.Model):
     def __repr__(self):
         return f'({self.name} | {self.employee} | {self.manager} | {self.note})'
 
-class MeritForm(forms.MeritForm):
+class MeritForm(forms.ModelForm):
     class Meta:
         model = Merit
         fields = ['name', 'employee', 'manager', 'note']
