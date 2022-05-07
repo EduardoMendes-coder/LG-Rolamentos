@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django import forms
 from backend.classes.model.employee import Employee
 from backend.classes.model.manager import Manager
 
@@ -13,4 +14,11 @@ class Advertence(models.Model):
     note = models.CharField(max_length=50, null=False)
 
     def __repr__(self):
-        return f'{self.name}'
+        return f'({self.name} | {self.employee} | {self.manager} | {self.note})'
+
+class AdvertenceForms(forms.ModelForm):
+    class Meta:
+        model = Advertence
+        fields = [
+            'name', 'employee', 'manager', 'note'
+        ]

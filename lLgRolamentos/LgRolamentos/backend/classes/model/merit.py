@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django import forms
 from backend.classes.model.employee import Employee
 from backend.classes.model.manager import Manager
 
@@ -13,4 +14,9 @@ class Merit(models.Model):
     note = models.CharField(max_length=50, null=False)
 
     def __repr__(self):
-        return f'{self.name}'
+        return f'({self.name} | {self.employee} | {self.manager} | {self.note})'
+
+class MeritForm(forms.MeritForm):
+    class Meta:
+        model = Merit
+        fields = ['name', 'employee', 'manager', 'note']

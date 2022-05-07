@@ -30,33 +30,21 @@ class ManagerViews:
 
     @staticmethod
     def add_employee(request):
-        role = Role()
-        employee = Employee()
-
-        role.id = request.POST.get('role')
-        employee.name = request.POST.get('name')
-        employee.age = request.POST.get('age')
-        employee.email = request.POST.get('email')
-        employee.address = request.POST.get('address')
-        employee.rg = request.POST.get('rg')
-        employee.pis = request.POST.get('pis')
-        employee.is_active = request.POST.get('is_active')
-        employee.role = role
-        employee.nationality = request.POST.get('nationality')
-        employee.salary = request.POST.get('salary')
-        employee.phone = request.POST.get('phone')
-        employee.sex = request.POST.get('sex')
-        employee.created_at = request.POST.get('created_at')
-        employee.hired_at = request.POST.get('hired_at')
-        employee.updated_at = request.POST.get('updated_at')
-        employee.save()
-
-        response = {
-            'status': 200,
-            'message': f'{employee.__repr__()} foi cadastrado com sucesso!'
-        }
-
-        return JsonResponse(response)
+        employee_form = EmployeeForm(request.POST)
+        if employee_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+            employee_form.save()
+            return JsonResponse(
+                {
+                    'status': 200,
+                    'msg': 'Success',
+                }
+            )
+        return JsonResponse(
+            {
+                'status': 400,
+                'msg': 'ERROR'
+            }
+        )
 
     @staticmethod
     def list_employees(request):
