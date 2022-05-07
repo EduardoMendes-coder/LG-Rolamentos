@@ -1,13 +1,8 @@
 from django.http import JsonResponse
-from django.utils import timezone
 from backend.classes.model.employee import Employee, EmployeeForm
-from backend.classes.model.manager import Manager
-from backend.classes.model.role import Role
-from datetime import datetime
+from backend.classes.model.manager import Manager, ManagerForm
 from backend.utils import casting, sex_validator
-from backend.classes.model.sex import Sex
 from django.shortcuts import get_object_or_404
-
 
 class ManagerViews:
     @staticmethod
@@ -52,3 +47,49 @@ class ManagerViews:
         return JsonResponse({
             'teste': response
         })
+
+    @staticmethod
+    def add_manager(request):
+        manager_form = ManagerForm(request.POST)
+        if manager_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+            manager_form.save()
+            return JsonResponse(
+                {
+                    'status': 200,
+                    'msg': 'Success'
+                }
+            )
+        return JsonResponse(
+            {
+                'status': 400,
+                'msg': 'ERROR'
+            }
+        )
+
+    @staticmethod
+    def edit_manager(request, id):
+        manager = get_object_or_404(Manager, id=id)
+        manager_form = ManagerForm(request.POST, instance=manager)
+        if manager_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+            manager_form.save()
+            return JsonResponse(
+                {
+                    'status': 200,
+                    'msg': 'Success'
+                }
+            )
+        return JsonResponse(
+            {
+                'status': 400,
+                'msg': 'ERROR'
+            }
+        )
+
+    @staticmethod
+    def list_manager(request):
+        response = [manager.__repr__() + ' - ' for manager in Manager.objects.all()]
+        return JsonResponse(
+            {
+                'Manager': response
+            }
+        )

@@ -35,10 +35,10 @@ class AdvertenceViews:
     @staticmethod
     def edit_advertence(request, id):
         advertence = get_object_or_404(Advertence, id=id)
-        advertence_form = AdvertenceForms(request.POST)
+        advertence_form = AdvertenceForms(request.POST, instance=advertence)
 
         if advertence_form.is_valid():
-            advertence_form.update()
+            advertence_form.save()
             return JsonResponse(
                 {
                     'status': 200,

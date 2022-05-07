@@ -30,8 +30,8 @@ class MeritViews:
 
     @staticmethod
     def edit_merit(request, id):
-        merit = get_object_or_404()
-        merit_form = MeritForm(request.POST)
+        merit = get_object_or_404(Merit, id=id)
+        merit_form = MeritForm(request.POST, instance=merit)
         if merit_form.is_valid():
             merit_form.update()
             return JsonResponse(
