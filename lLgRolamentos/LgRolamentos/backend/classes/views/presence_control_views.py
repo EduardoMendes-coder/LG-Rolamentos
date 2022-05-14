@@ -27,8 +27,9 @@ class PresenceControlViews:
 
                         for r in result:
                             response[str(r.date)] = {
-                                'is_present_morning': r.is_present_morning,
-                                'is_present_afternoon': r.is_present_afternoon,
+                                'presence_morning': r.presence_morning,
+                                'presence_afternoon': r.presence_afternoon,
+                                'payment': r.payment,
                                 'manager': r.manager.name if r.manager is not None else None,
                                 'note': r.note
                             }
