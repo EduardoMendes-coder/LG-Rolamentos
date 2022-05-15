@@ -11,8 +11,8 @@ class Manager(models.Model):
     is_active = models.BooleanField(default=True, null=True)
     hired_at = models.DateTimeField(default=None, null=True)
     created_at = models.DateTimeField(default=timezone.now(), null=True)
-    user = models.CharField(max_length=50, unique=True, null=False)
-    password = models.CharField(max_length=30, null=False)
+    user = models.CharField(max_length=100, unique=True, null=False)
+    password = models.CharField(max_length=100, null=False)
     updated_at = models.DateTimeField(default=None, null=True)
 
     def __repr__(self):

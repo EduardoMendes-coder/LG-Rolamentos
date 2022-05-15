@@ -4,10 +4,7 @@ from backend.classes.model.manager import Manager, ManagerForm
 from backend.utils import casting, sex_validator
 from django.shortcuts import get_object_or_404
 from django.http.request import QueryDict
-import pyaes
-
-
-KEY = b"0123456789123456"
+import bcrypt
 
 
 class ManagerViews:
@@ -36,84 +33,88 @@ class ManagerViews:
 
     @staticmethod
     def add_employee(request):
-        post = request.POST.copy()
-        post['sex'] = request.POST.get('sex').lower()
-        request.POST = post
-        employee_form = EmployeeForm(request.POST)
+        if request.method == 'POST':
+            post = request.POST.copy()
+            post['sex'] = request.POST.get('sex').lower()
+            request.POST = post
+            employee_form = EmployeeForm(request.POST)
 
-        if employee_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
-            employee_form.save()
+            if employee_form.is_valid() and sex_validator.validate(request.POST.get('sex')):
+                employee_form.save()
+                return JsonResponse(
+                    {
+                        'status': 200,
+                        'msg': 'Success',
+                    }
+                )
             return JsonResponse(
                 {
-                    'status': 200,
-                    'msg': 'Success',
+                    'status': 400,
+                    'msg': 'ERROR'
                 }
             )
-        return JsonResponse(
-            {
-                'status': 400,
-                'msg': 'ERROR'
-            }
-        )
 
     @staticmethod
     def list_employees(request):
-        response = [employee.__repr__() + ' - ' for employee in Employee.objects.all()]
-        return JsonResponse({
-            'teste': response
-        })
+        if request.method == 'GET':
+            response = [employee.__repr__() + ' - ' for employee in Employee.objects.all()]
+            return JsonResponse({
+                'teste': response
+            })
 
     @staticmethod
     def add_manager(request):
-        aes = pyaes.AESModeOfOperationCTR(KEY)
-        post = request.POST.copy()
-        post['password'] = aes.encrypt(request.POST.get('password'))
+        if request.method == 'POST':
+            post = request.POST.copy()
+            post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
 
-        request.POST = post
-        manager_form = ManagerForm(request.POST)
+            request.POST = post
+            manager_form = ManagerForm(request.POST)
 
-        if manager_form.is_valid():
-            manager_form.save()
+            if manager_form.is_valid():
+                manager_form.save()
+                return JsonResponse(
+                    {
+                        'status': 200,
+                        'msg': 'Success'
+                    }
+                )
             return JsonResponse(
                 {
-                    'status': 200,
-                    'msg': 'Success'
+                    'status': 400,
+                    'msg': 'ERROR' + str(manager_form)
                 }
             )
-        return JsonResponse(
-            {
-                'status': 400,
-                'msg': 'ERROR'
-            }
-        )
 
     @staticmethod
     def edit_manager(request, id):
-        manager = get_object_or_404(Manager, id=id)
-        manager_form = ManagerForm(request.POST, instance=manager)
-        aes = pyaes.AESModeOfOperationCTR(KEY)
-        request.POST['password'] = aes.encrypt(request.POST.get('password'))
+        if request.method == 'POST':
+            manager = get_object_or_404(Manager, id=id)
+            post = request.POST.copy()
+            post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
+            manager_form = ManagerForm(request.POST, instance=manager)
 
-        if manager_form.is_valid():
-            manager_form.save()
+            if manager_form.is_valid():
+                manager_form.save()
+                return JsonResponse(
+                    {
+                        'status': 200,
+                        'msg': 'Success'
+                    }
+                )
             return JsonResponse(
                 {
-                    'status': 200,
-                    'msg': 'Success'
+                    'status': 400,
+                    'msg': 'ERROR'
                 }
             )
-        return JsonResponse(
-            {
-                'status': 400,
-                'msg': 'ERROR'
-            }
-        )
 
     @staticmethod
     def list_manager(request):
-        response = [manager.__repr__() + ' - ' for manager in Manager.objects.all()]
-        return JsonResponse(
-            {
-                'Manager': response
-            }
-        )
+        if request.method == 'GET':
+            response = [manager.__repr__() + ' - ' for manager in Manager.objects.all()]
+            return JsonResponse(
+                {
+                    'Manager': response
+                }
+            )

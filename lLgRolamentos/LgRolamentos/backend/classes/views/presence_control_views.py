@@ -1,10 +1,14 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from backend.classes.model.employee import Employee
 from backend.classes.model.manager import Manager
 from backend.utils import casting
 from backend.classes.model.presence_control import PresenceControl, PresenceControlForm
 import datetime
+import time
 from django.shortcuts import get_object_or_404
+import threading
+import pyaes
+from backend.classes.views import manager_views
 
 
 class PresenceControlViews:
@@ -75,3 +79,66 @@ class PresenceControlViews:
                 presence_control_form.save()
                 return JsonResponse({'status': 200, 'msg': 'ok'})
             return JsonResponse({'status': 400, 'msg': 'error: not_ok'})
+
+    @staticmethod
+    def set_new_presence_control():
+        employees = Employee.objects.filter(is_active=True)
+        today = datetime.datetime.now().strftime('%Y-%m-%d')
+
+        for employee in employees:
+            if not PresenceControl.objects.filter(employee=employee, date=today):
+                new_presence_control = PresenceControl(
+                    date=today,
+                    presence_morning=True,
+                    presence_afternoon=True,
+                    note='',
+                    employee=employee,
+                    manager=None,
+                    payment=True
+                )
+
+                try:
+                    new_presence_control.save()
+                except Exception as e:
+                    raise Exception(f'Fucking error: {e}')
+
+        return JsonResponse({'ok': 'ok'})
+
+    @staticmethod
+    def watch_new_presence_control():
+        available_weekdays = ['1', '2', '3', '4', '5', '6']  # mon - sat
+
+        while True:
+            actual_time = datetime.datetime.now()
+            if actual_time.strftime('%w') in available_weekdays:
+                actual_time = datetime.datetime.now()
+                actual_time_str = actual_time.strftime('%Y-%m-%d')
+                start_time = datetime.datetime.strptime(actual_time_str + ' 08:00:00', '%Y-%m-%d %H:%M:%S')
+                end_time = datetime.datetime.strptime(actual_time_str + ' 11:00:00', '%Y-%m-%d %H:%M:%S')
+
+                if actual_time > start_time <= actual_time <= end_time:
+                    PresenceControlViews.set_new_presence_control()
+
+                    if actual_time > start_time:
+                        wait_time = (
+                                datetime.timedelta(seconds=24 * 60 * 60) - (start_time - actual_time)
+                        ).seconds / 60 / 60
+                    elif actual_time < start_time:
+                        wait_time = (
+                            datetime.timedelta(seconds=24 * 60 * 60) - (actual_time - start_time)
+                        ).seconds / 60 / 60
+                    else:
+                        wait_time = 24
+                else:
+                    wait_time = 1
+            else:
+                wait_time = 24
+
+            time.sleep(wait_time * 60 * 60)
+
+    @staticmethod
+    def start_thread(request, user, password):
+        manager = get_object_or_404(Manager, user=user, password=password, is_active=True)
+        threading.Thread(target=PresenceControlViews.watch_new_presence_control).start()
+
+        return HttpResponse(request, 'ok')
