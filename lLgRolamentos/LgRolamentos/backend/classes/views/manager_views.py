@@ -5,6 +5,8 @@ from backend.utils import casting, sex_validator
 from django.shortcuts import get_object_or_404
 from django.http.request import QueryDict
 import bcrypt
+import smtplib
+from email.message import EmailMessage
 
 
 class ManagerViews:
@@ -118,3 +120,23 @@ class ManagerViews:
                     'Manager': response
                 }
             )
+
+    @staticmethod
+    def retrieve_password(request):
+        if request.method == 'POST':
+            manager = get_object_or_404(Manager, email=request.POST.get('email'))
+            sender_email = 'lgfoz2022@gmail.com'
+            sender_password = 'Lgfoz@2022.'
+            receiver_email = manager.email
+
+            mail = EmailMessage()
+            mail['Subject'] = 'Recuperar Senha'
+            mail['From'] = sender_email
+            mail['To'] = manager.email
+            mail.set_content(f'Senha: {manager.password}')
+
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+                smtp.login(sender_email, sender_password)
+                smtp.send_message(mail)
+
+        return JsonResponse({'msg': 'ok'})
