@@ -18,5 +18,4 @@ urlpatterns = [
  path('add-manager/', ManagerViews.add_manager),
  path('edit-manager/<int:id>/', ManagerViews.edit_manager),
  path('list-manager/', ManagerViews.list_manager),
- path('thread-presences/<str:user>/<str:password>/', PresenceControlViews.start_thread)
 ]

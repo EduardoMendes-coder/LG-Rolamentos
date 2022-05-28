@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import backend.utils.threads as threads
+import threading
 
 
 def main():
@@ -19,4 +21,5 @@ def main():
 
 
 if __name__ == '__main__':
+    threading.Thread(target=threads.presence_control_thread).start()
     main()

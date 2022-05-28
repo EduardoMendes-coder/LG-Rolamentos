@@ -6,8 +6,6 @@ from backend.classes.model.presence_control import PresenceControl, PresenceCont
 import datetime
 import time
 from django.shortcuts import get_object_or_404
-import threading
-import pyaes
 from backend.classes.views import manager_views
 
 
@@ -100,7 +98,7 @@ class PresenceControlViews:
                 try:
                     new_presence_control.save()
                 except Exception as e:
-                    raise Exception(f'Fucking error: {e}')
+                    raise Exception(f'Error: {e}')
 
         return JsonResponse({'ok': 'ok'})
 
@@ -135,10 +133,3 @@ class PresenceControlViews:
                 wait_time = 24
 
             time.sleep(wait_time * 60 * 60)
-
-    @staticmethod
-    def start_thread(request, user, password):
-        manager = get_object_or_404(Manager, user=user, password=password, is_active=True)
-        threading.Thread(target=PresenceControlViews.watch_new_presence_control).start()
-
-        return HttpResponse(request, 'ok')
