@@ -1,10 +1,11 @@
 import React from 'react';
 import css from './Home.css';
+import TableEmployee from "../../components/table/TableEmployee";
 
 function Home(){
     return(
         <div class='home'>
-            <h1>home</h1>
+            <TableEmployee />
         </div>
     );
 }

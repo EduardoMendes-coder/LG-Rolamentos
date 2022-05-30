@@ -41,7 +41,7 @@ const tableData = [
 
 const TableEmployee = () => {
     return (
-        <div class='container'>
+        <div className='container'>
             <Card>
                 <CardBody>
                     <CardTitle tag="h5">Project Listing</CardTitle>

@@ -10,7 +10,6 @@ import {
 import { NavLink } from 'react-router-dom';
 import css from './Sidebar.css';
 import {Button} from "rsuite";
-import Logon from "../../views/login/Login";
 
 const Sidebar = () => {
     return (
