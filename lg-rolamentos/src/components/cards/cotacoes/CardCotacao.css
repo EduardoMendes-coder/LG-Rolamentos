@@ -1,0 +1,12 @@
+.cotacoes{
+    display: flex;
+    flex-direction: row;
+    margin-left: 300px;
+}
+
+.card{
+    display: flex;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+}

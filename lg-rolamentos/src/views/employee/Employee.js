@@ -4,7 +4,7 @@ import css from "./Employee.css";
 
 function Employee(){
     return(
-        <div className="container">
+        <div className="containerEmployee">
             <TableEmployee />
         </div>
     );

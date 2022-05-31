@@ -1,5 +1,4 @@
 .home{
-    display: flex;
-    justify-content: center;
+    height: 100%;
     color: #61dafb;
 }
