@@ -11,7 +11,7 @@ function CardCotacao(){
             </Card>
             <Card className="card cardGuarani">
                 <CardBody>
-                    <h5>Cotação Guarani</h5>
+                    <h5>Cotação Dólar</h5>
                 </CardBody>
             </Card>
         </div>

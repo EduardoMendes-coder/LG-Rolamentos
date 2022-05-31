@@ -6,7 +6,6 @@ import CardCotacao from "../../components/cards/cotacoes/CardCotacao";
 function Home(){
     return(
         <div className="home">
-            <CardCotacao />
             <TableEmployee />
         </div>
     );

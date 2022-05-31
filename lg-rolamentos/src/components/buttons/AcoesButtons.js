@@ -1,7 +1,7 @@
-import css from "./AcoesEmployee.css";
+import css from "./AcoesButtons.css";
 import {Button} from "reactstrap";
 
-function AcoesEmployee(){
+function AcoesButtons(){
     return (
         <div className="acoes">
             <Button className="acao consultar" outline>Consultar</Button>
@@ -11,4 +11,4 @@ function AcoesEmployee(){
     );
 }
 
-export default AcoesEmployee;
+export default AcoesButtons;

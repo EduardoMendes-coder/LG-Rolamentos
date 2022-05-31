@@ -1,58 +1,29 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
-import css from './TableEmployee.css';
-import ButtonInsertEmployee from "../buttons/InsertEmployee";
-import CardStatusEmployee from "../cards/status/CardStatusEmployee";
+import css from "./TableManager.css";
 import AcoesButtons from "../buttons/AcoesButtons";
-
 
 const tableData = [
     {
-        name: "Shisue Lewin",
-        email: "shisue@gmail.com",
-        cargo: "Vendedor",
-        status: "pending",
-        dataAdmissao: "02/05/2020",
-        opcoes: <AcoesButtons />
-    },
-    {
         name: "Nicholas Laplace",
         email: "laplace@gmail.com",
-        cargo: "Caixa",
+        cargo: "Gerente",
         status: "done",
         dataAdmissao: "11/05/2022",
         opcoes: <AcoesButtons />
     },
     {
-        name: "Kayden K.",
-        email: "kayden@gmail.com",
-        cargo: "Estoque",
-        status: "done",
-        dataAdmissao: "23/09/2019",
-        opcoes: <AcoesButtons />
-    },
-    {
-        name: "Arquimedes",
-        email: "arq@gmail.com",
-        cargo: "Vendedor",
-        status: "pending",
-        dataAdmissao: "14/01/2015",
-        opcoes: <AcoesButtons />
-    },
-    {
         name: "Pitagoras Samos",
         email: "pitagoras@gmail.com",
-        cargo: "Vendedor",
+        cargo: "Gerente",
         status: "done",
         dataAdmissao: "30/01/2017",
         opcoes: <AcoesButtons />
     },
 ];
 
-const TableEmployee = () => {
+const TableManager = () => {
     return (
         <div className='containerMain'>
-            <CardStatusEmployee />
-            <ButtonInsertEmployee />
             <CardBody>
                 <Table className="no-wrap mt-3 align-middle" responsive borderless>
                     <thead>
@@ -96,4 +67,4 @@ const TableEmployee = () => {
     );
 };
 
-export default TableEmployee;
+export default TableManager;

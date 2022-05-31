@@ -1,0 +1,10 @@
+.containerMain{
+    margin-top: 70px;
+    margin-left: 280px;
+    width: 100%;
+}
+
+.opAcao{
+    display: flex;
+    justify-content: center;
+}

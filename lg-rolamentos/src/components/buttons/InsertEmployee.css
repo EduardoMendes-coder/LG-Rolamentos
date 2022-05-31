@@ -1,6 +1,14 @@
 .botaoCadastrar{
+    display: flex;
     width: 200px;
     margin-top: 30px;
+
+}
+
+.mainDiv{
+    display: flex;
+    margin-right: 220px;
+    justify-content: flex-end;
 }
 
 .insert{
