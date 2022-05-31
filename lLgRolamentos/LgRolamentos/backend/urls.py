@@ -3,6 +3,7 @@ from .classes.views.advertence_views import AdvertenceViews
 from .classes.views.manager_views import ManagerViews
 from .classes.views.merit_views import MeritViews
 from .classes.views.presence_control_views import PresenceControlViews
+from .utils.get_exchange import get_dollar_price
 
 urlpatterns = [
  path('add/', ManagerViews.add_employee),
@@ -18,5 +19,6 @@ urlpatterns = [
  path('add-manager/', ManagerViews.add_manager),
  path('edit-manager/<int:id>/', ManagerViews.edit_manager),
  path('list-manager/', ManagerViews.list_manager),
- path('retrieve-password/', ManagerViews.retrieve_password)
+ path('retrieve-password/', ManagerViews.retrieve_password),
+ path('get-dollar-price', get_dollar_price)
 ]
