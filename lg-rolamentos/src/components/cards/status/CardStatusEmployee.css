@@ -4,10 +4,15 @@
     width: 200px;
 }
 
+.cardInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
 .cardStatus{
     display: flex;
     flex-direction: row;
-    margin-left: 800px;
+    align-items: flex-end;
 }
 
 .cardAtivo{

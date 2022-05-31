@@ -2,6 +2,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import css from './TableEmployee.css';
 import ButtonInsertEmployee from "../buttons/InsertEmployee";
 import CardStatusEmployee from "../cards/status/CardStatusEmployee";
+import AcoesEmployee from "../buttons/AcoesEmployee";
 
 const tableData = [
     {
@@ -10,6 +11,7 @@ const tableData = [
         cargo: "Vendedor",
         status: "pending",
         dataAdmissao: "02/05/2020",
+        opcoes: <AcoesEmployee />
     },
     {
         name: "Nicholas Laplace",
@@ -17,6 +19,7 @@ const tableData = [
         cargo: "Caixa",
         status: "done",
         dataAdmissao: "11/05/2022",
+        opcoes: <AcoesEmployee />
     },
     {
         name: "Kayden K.",
@@ -24,6 +27,7 @@ const tableData = [
         cargo: "Estoque",
         status: "done",
         dataAdmissao: "23/09/2019",
+        opcoes: <AcoesEmployee />
     },
     {
         name: "Arquimedes",
@@ -31,6 +35,7 @@ const tableData = [
         cargo: "Vendedor",
         status: "pending",
         dataAdmissao: "14/01/2015",
+        opcoes: <AcoesEmployee />
     },
     {
         name: "Pitagoras Samos",
@@ -38,6 +43,7 @@ const tableData = [
         cargo: "Vendedor",
         status: "done",
         dataAdmissao: "30/01/2017",
+        opcoes: <AcoesEmployee />
     },
 ];
 
@@ -54,7 +60,7 @@ const TableEmployee = () => {
                         <th>Cargo</th>
                         <th>Status</th>
                         <th>Data de Admissão</th>
-                        <th>Ações</th>
+                        <th className="opAcao">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,6 +85,7 @@ const TableEmployee = () => {
                                 )}
                             </td>
                             <td>{tdata.dataAdmissao}</td>
+                            <td>{tdata.opcoes}</td>
                         </tr>
                     ))}
                     </tbody>

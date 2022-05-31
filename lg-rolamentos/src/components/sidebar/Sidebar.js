@@ -47,7 +47,7 @@ const Sidebar = () => {
                             padding: '20px 5px',
                         }}
                     >
-                        <Button style={{color: 'red'}}>Sair</Button>
+                        <Button className='sair'>Sair</Button>
                     </div>
                 </CDBSidebarFooter>
             </CDBSidebar>

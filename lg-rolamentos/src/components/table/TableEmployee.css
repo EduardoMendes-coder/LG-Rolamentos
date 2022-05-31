@@ -3,3 +3,7 @@
     margin-left: 280px;
 }
 
+.opAcao{
+    display: flex;
+    justify-content: center;
+}
