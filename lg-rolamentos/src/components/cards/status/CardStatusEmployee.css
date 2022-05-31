@@ -1,0 +1,23 @@
+.textos{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.cardStatus{
+    display: flex;
+    flex-direction: row;
+    margin-left: 800px;
+}
+
+.cardAtivo{
+    width: 250px;
+    color: white;
+    background-color: green;
+}
+
+.cardInativo{
+    width: 250px;
+    color: white;
+    background-color: red;
+}

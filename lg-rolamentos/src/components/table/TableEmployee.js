@@ -1,6 +1,7 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import css from './TableEmployee.css';
 import ButtonInsertEmployee from "../buttons/InsertEmployee";
+import CardStatusEmployee from "../cards/status/CardStatusEmployee";
 
 const tableData = [
     {
@@ -43,6 +44,7 @@ const tableData = [
 const TableEmployee = () => {
     return (
         <div className='containerMain'>
+            <CardStatusEmployee />
             <ButtonInsertEmployee />
             <CardBody>
                 <Table className="no-wrap mt-3 align-middle" responsive borderless>
