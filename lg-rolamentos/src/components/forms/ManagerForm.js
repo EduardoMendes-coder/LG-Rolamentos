@@ -94,8 +94,8 @@ export default function Form() {
                 {errorMessage()}
                 {successMessage()}
             </div>
-            <div className="form"> 
-                <form action="LG-Rolamentos/lg-rolamentos/src/components/forms/ManagerForm" method="post">
+            <div className="form">
+                <form action="http://127.0.0.1:8000/add-manager/" method="post">
                     <label className="label">Nome</label>
                     <input onChange={handleName} className="input"
                            value={name} type="text" name="name" />
@@ -129,7 +129,7 @@ export default function Form() {
                            value={hiredAt} type="date" name="hired_at"/>
 
                     <input type="hidden" name="is_active" value="true"></input>
-                   
+
                     <input className="btn" type="submit" value="Submit"></input>
                 </form>
             </div>
