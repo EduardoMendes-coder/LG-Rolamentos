@@ -1,8 +1,8 @@
 .cotacoes{
     display: flex;
     flex-direction: row;
-    margin-left: 300px;
     color: grey;
+    margin-top: -50px;
 }
 
 .card{

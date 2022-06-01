@@ -3,6 +3,7 @@ import css from './TableEmployee.css';
 import ButtonInsertEmployee from "../buttons/InsertEmployee";
 import CardStatusEmployee from "../cards/status/CardStatusEmployee";
 import AcoesButtons from "../buttons/AcoesButtons";
+import CardCotacao from "../cards/cotacoes/CardCotacao";
 
 
 const tableData = [
@@ -51,6 +52,7 @@ const tableData = [
 const TableEmployee = () => {
     return (
         <div className='containerMain'>
+            <CardCotacao />
             <CardStatusEmployee />
             <ButtonInsertEmployee />
             <CardBody>
