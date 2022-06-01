@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import css from "./ManagerForm.css";
 
-export default function Form() {
+function ManagerForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -136,3 +136,5 @@ export default function Form() {
         </div>
     );
 }
+
+export default ManagerForm;

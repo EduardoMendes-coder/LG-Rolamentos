@@ -1,6 +1,7 @@
 import css from "./InsertEmployee.css";
 import { Button } from "reactstrap";
 import EmployeeForm from "../forms/EmployeeForm";
+import ManagerForm from "../forms/ManagerForm";
 
 function ButtonInsertEmployee(){
     return(
