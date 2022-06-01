@@ -15,7 +15,7 @@ function ButtonInsertEmployee(){
         <div className='mainDiv'>
             <div className="botaoCadastrar">
                 <Button className="insert">
-                   <Link to="/formInsertEmployee">Cadastrar Funcionário</Link>
+                   <Link to="/api/employee/formInsertEmployee">Cadastrar Funcionário</Link>
                 </Button>
             </div>
             <div>

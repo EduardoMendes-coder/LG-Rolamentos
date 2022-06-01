@@ -26,16 +26,16 @@ const Sidebar = () => {
                         <NavLink exact to="/" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="home" >Home</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/manager" activeClassName="activeClicked">
+                        <NavLink exact to="/api/manager" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="users">Gerente</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/form" activeClassName="activeClicked">
+                        <NavLink exact to="/api/atividades" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="table">Atividades</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/dashboard" activeClassName="activeClicked">
+                        <NavLink exact to="/api/dashboard" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="chart-line">Dashboard</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/calculadora" activeClassName="activeClicked">
+                        <NavLink exact to="/api/calculadora" activeClassName="activeClicked">
                             <CDBSidebarMenuItem icon="calculator">Calculadora</CDBSidebarMenuItem>
                         </NavLink>
                     </CDBSidebarMenu>
