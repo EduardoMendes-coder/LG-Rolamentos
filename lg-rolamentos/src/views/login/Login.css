@@ -1,0 +1,24 @@
+body {
+    font: 400 14px Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.login {
+    max-width: 100%;
+}
+
+.login img{
+    width: 600px;
+}
+
+.login .form{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 25px 25px black;
+    width: 100%;
+    padding: 40px;
+}
+
+.login .button{
+    box-shadow: 4px 6px 10px rgb(168, 168, 168);
+}
