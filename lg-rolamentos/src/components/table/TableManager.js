@@ -1,6 +1,7 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import css from "./TableManager.css";
 import AcoesButtons from "../buttons/AcoesButtons";
+import CardStatusManager from "../cards/status/CardStatusManager";
 
 const tableData = [
     {
@@ -24,6 +25,7 @@ const tableData = [
 const TableManager = () => {
     return (
         <div className='containerMain'>
+            <CardStatusManager />
             <CardBody>
                 <Table className="no-wrap mt-3 align-middle" responsive borderless>
                     <thead>

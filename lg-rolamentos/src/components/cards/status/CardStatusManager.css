@@ -1,18 +1,7 @@
-.containerMain{
-    margin-top: 70px;
-    margin-left: 280px;
-    width: 100%;
-}
-
-.opAcao{
-    display: flex;
-    justify-content: center;
-}
-
 .textosManager{
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: 300px;
 }
 
 .cardInfoManager{
@@ -23,6 +12,7 @@
 .cardStatusManager{
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
 }
 
 .cardAtivoManager{
