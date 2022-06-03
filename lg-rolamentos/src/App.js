@@ -7,6 +7,7 @@ import Logon from "./views/login/Login.js";
 import ManagerView from "./views/manager/ManagerView";
 import EmployeeForm from "./components/forms/EmployeeForm";
 import ManagerForm from "./components/forms/ManagerForm";
+import ActivityView from "./views/atividades/ActivityView";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/api/login" element={<Logon />} />
                 <Route path="/api/employee/formInsertEmployee" element={<EmployeeForm />} />
                 <Route path="/api/manager/formInsertManager" element={<ManagerForm />} />
+                <Route path="/api/activities" element={<ActivityView />} />
             </Routes>
         </Router>
     );
