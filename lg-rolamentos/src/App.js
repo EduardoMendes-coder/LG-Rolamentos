@@ -17,7 +17,7 @@ function App() {
                 <Route path="/api/manager" element={<ManagerView/>} />
                 <Route path="/api/login" element={<Logon />} />
                 <Route path="/api/employee/formInsertEmployee" element={<EmployeeForm />} />
-                <Route path="/api/formInsertManager" element={<ManagerForm />} />
+                <Route path="/api/manager/formInsertManager" element={<ManagerForm />} />
             </Routes>
         </Router>
     );
