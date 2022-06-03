@@ -6,7 +6,7 @@ function CardStatusManager(){
         <Card className="cardInfoManager">
             <div className="textosManager">
                 <h2 style={{color: "grey"}}>Gerentes</h2>
-                <h5 style={{color: "grey"}}>Gerente/Status de Atividade</h5>
+                <h5 style={{color: "grey"}}></h5>
             </div>
             <div className="cardStatusManager">
                 <Card className="cardAtivoManager">
