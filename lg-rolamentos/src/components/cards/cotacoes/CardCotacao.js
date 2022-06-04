@@ -1,6 +1,7 @@
 import { Card, CardBody } from "reactstrap";
 import css from "./CardCotacao.css";
 
+
 function CardCotacao(){
     return(
         <div className="cotacoes">

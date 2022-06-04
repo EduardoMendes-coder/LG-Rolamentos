@@ -17,6 +17,9 @@ const getManagersList =  () => {
 }
 
 function setManagers(managersAPI) {
+    let actives = 0
+    let inactives = 0
+
     for (let i = 0; i < managersAPI.length; i++) {
         managers.push(
             {
@@ -33,8 +36,16 @@ function setManagers(managersAPI) {
                 //options: <AcoesButtons />,
             }
         )
+        if (managersAPI[i].is_active === true) {
+            actives += 1
+        }
+        else if (managersAPI[i].is_active === false) {
+            inactives += 1
+        }
     }
     localStorage.setItem('managers', JSON.stringify(managers))
+    localStorage.setItem('actives', JSON.stringify(actives))
+    localStorage.setItem('inactives', JSON.stringify(inactives))
 }
 
 getManagersList()
