@@ -1,9 +1,11 @@
-import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
+import {Card, CardBody, CardTitle, CardSubtitle, Table} from "reactstrap";
 import css from './TableEmployee.css';
 import CardStatusEmployee from "../cards/status/CardStatusEmployee";
 import CardCotacao from "../cards/cotacoes/CardCotacao";
 import axios from 'axios';
 import InsertEmployee from "../buttons/InsertEmployee";
+import {Button} from "reactstrap";
+import {Link} from "react-router-dom";
 
 let employees = []
 
@@ -86,6 +88,19 @@ const TableEmployee = () => {
                                 )}
                             </td>
                             <td>{tdata.hired_at}</td>
+                            <td>
+                                <div className="acoes">
+                                    <Button className="acaoE consultar" outline>
+                                        <Link className="linkForm" to={"/api/employee/formViewEmployee/" + tdata.id}>Consultar</Link>
+                                    </Button>
+                                    <Button className="acaoE editar" outline>
+                                        <Link className="linkForm" to={"/api/employee/formEditEmployee/" + tdata.id}>Editar</Link>
+                                    </Button>
+                                    <Button className="acaoE demitir" outline>
+                                        <Link className="linkForm" to={"/api/manager/formInactiveEmployee/" + tdata.id}>Demitir</Link>
+                                    </Button>
+                                </div>
+                            </td>
                         </tr>
                     ))}
                     </tbody>
