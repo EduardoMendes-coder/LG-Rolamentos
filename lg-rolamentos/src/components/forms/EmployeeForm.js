@@ -4,17 +4,15 @@ import css from "./EmployeeForm.css";
 function EmployeeForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
     const [address, setAddress] = useState('');
     const [pis, setPis] = useState('');
-    const [sex, setSex] = useState('');
+    let [sex, setSex] = useState('');
     const [role, setRole] = useState('');
     const [nationality, setNationality] = useState('');
     const [salary, setSalary] = useState('');
     const [phone, setPhone] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [hiredAt, setHiredAt] = useState('');
 
 
@@ -63,16 +61,6 @@ function EmployeeForm() {
         setSubmitted(false);
     };
 
-    const handlePassword = (e) => {
-        setPassword(e.target.value);
-        setSubmitted(false);
-    };
-
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value);
-        setSubmitted(false);
-    };
-
     const handleAddress = (e) => {
         setAddress(e.target.value);
         setSubmitted(false);
@@ -80,7 +68,7 @@ function EmployeeForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name === '' || email === '' || password === '') {
+        if (name === '' || email === '') {
             setError(true);
         } else {
             setSubmitted(true);
@@ -137,32 +125,27 @@ function EmployeeForm() {
                            value={pis} type="text" name="pis"/>
 
                     <label className="label">Sexo</label>
-                    <input onChange={handleSex} className="input"
-                           value={sex} type="text" name="Sex"/>
+                    <select onChange={handleSex} name="sex">
+                        <option onChange={handleSex} value={sex = 'male'} name="sex">male</option>
+                        <option onChange={handleSex} value={sex = 'female'} name="sex">female</option>
+                        <option onChange={handleSex} value={sex = 'other'} name="sex">other</option>
+                    </select>
 
                     <label className="label">Cargo</label>
                     <input onChange={handleRole} className="input"
-                           value={role} type="text" name="Role"/>
+                           value={role} type="text" name="role"/>
 
                     <label className="label">Nacionalidade</label>
                     <input onChange={handleNationality} className="input"
-                           value={nationality} type="text" name="Nationality"/>
+                           value={nationality} type="text" name="nationality"/>
 
                     <label className="label">Salário</label>
                     <input onChange={handleSalary} className="input"
-                           value={salary} type="float" name="Salary"/>
+                           value={salary} type="float" name="salary"/>
 
                     <label className="label">Telefone</label>
                     <input onChange={handlePhone} className="input"
-                           value={phone} type="number" name="Phone"/>
-
-                    <label className="label">Senha</label>
-                    <input onChange={handlePassword} className="input"
-                           value={password} type="password" name="password" />
-
-                    <label className="label">Confirmar Senha</label>
-                    <input onChange={handleConfirmPassword} className="input"
-                           value={confirmPassword} type="password" name="confirm_password"/>
+                           value={phone} type="number" name="phone"/>
 
                     <label className="label">Contratado Em</label>
                     <input onChange={handleHiredAt} className="input"
