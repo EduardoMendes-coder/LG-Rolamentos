@@ -107,9 +107,9 @@ const TableManager = () => {
                             </td>
                             <td>{tdata.user}</td>
                             <td>
-                                {tdata.is_active === "true" ? (
+                                {tdata.is_active === true ? (
                                     <span className="p-2 bg-success rounded-circle d-inline-block ms-3"></span>
-                                ) : tdata.is_active === "false" ? (
+                                ) : tdata.is_active === false ? (
                                     <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
                                 ) : (
                                     <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
