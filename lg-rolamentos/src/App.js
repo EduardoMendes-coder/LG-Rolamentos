@@ -11,9 +11,9 @@ import ActivityView from "./views/atividades/ActivityView";
 import MeritsView from "./views/atividades/MeritsView";
 import AdvertenceView from "./views/atividades/AdvertenceView";
 import PresenceControlView from "./views/atividades/PresenceControlView";
-//import ManagerViewForm from "./components/forms/ManagerViewForm";
-//import ManagerEditForm from "./components/forms/ManagerEditForm";
-//import ManagerInactiveForm from "./components/forms/ManagerInactiveForm";
+import ManagerViewForm from "./components/forms/ManagerViewForm";
+import ManagerEditForm from "./components/forms/ManagerEditForm";
+import ManagerInactiveForm from "./components/forms/ManagerInactiveForm";
 
 function App() {
     return (
@@ -29,9 +29,9 @@ function App() {
                 <Route path="/api/activities/merits" element={<MeritsView />} />
                 <Route path="/api/activities/advertences" element={<AdvertenceView />} />
                 <Route path="/api/activities/presenceControl" element={<PresenceControlView />} />
-                {/*<Route path="/api/manager/formViewManager/:id" element={<ManagerViewForm />} />*/}
-                {/*<Route path="/api/manager/formEditManager/:id" element={<ManagerEditForm />} />*/}
-                {/*<Route path="/api/manager/formInactiveManager/:id" element={<ManagerInactiveForm />} />*/}
+                <Route path="/api/manager/formViewManager/:id" element={<ManagerViewForm />} />
+                <Route path="/api/manager/formEditManager/:id" element={<ManagerEditForm />} />
+                <Route path="/api/manager/formInactiveManager/:id" element={<ManagerInactiveForm />} />
             </Routes>
         </Router>
     );
