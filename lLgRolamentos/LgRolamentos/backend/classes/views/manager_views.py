@@ -93,7 +93,16 @@ class ManagerViews:
         if request.method == 'POST':
             manager = get_object_or_404(Manager, id=id)
             post = request.POST.copy()
-            post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
+
+            if not manager.is_active or not bcrypt.checkpw(post['password'].encode('utf-8'), manager.password.encode('utf-8')):
+                return JsonResponse({'status': 400, 'msg': 'incorrect password or inactive'})
+
+            if post['new_password'].strip():
+                post['password'] = bcrypt.hashpw(post['new_password'].encode('utf-8'), bcrypt.gensalt())
+            else:
+                post['password'] = manager.password
+
+            request.POST = post
             manager_form = ManagerForm(request.POST, instance=manager)
 
             if manager_form.is_valid():
