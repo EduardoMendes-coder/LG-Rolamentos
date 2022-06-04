@@ -6,6 +6,7 @@ from datetime import datetime
 from backend.classes.model.merit import Merit, MeritForm
 from backend.classes.model.manager import Manager
 from backend.classes.model.employee import Employee
+from django.utils import timezone
 
 
 class MeritViews:
@@ -33,6 +34,8 @@ class MeritViews:
         merit = get_object_or_404(Merit, id=id)
         merit_form = MeritForm(request.POST, instance=merit)
         if merit_form.is_valid():
+            merit.updated_at = timezone.now()
+            merit.save()
             merit_form.update()
             return JsonResponse(
                 {

@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from backend.classes.model.advertence import Advertence, AdvertenceForms
+from django.utils import timezone
 
 
 class AdvertenceViews:
@@ -39,6 +40,8 @@ class AdvertenceViews:
         advertence_form = AdvertenceForms(request.POST, instance=advertence)
 
         if advertence_form.is_valid():
+            advertence.updated_at = timezone.now()
+            advertence.save()
             advertence_form.save()
             return JsonResponse(
                 {

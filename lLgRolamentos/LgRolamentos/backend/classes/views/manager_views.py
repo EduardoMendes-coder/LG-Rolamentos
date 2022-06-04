@@ -9,6 +9,7 @@ from email.message import EmailMessage
 from backend.utils import casting
 from datetime import datetime, timedelta
 from backend.classes.model.role import Role
+from django.utils import timezone
 
 
 class ManagerViews:
@@ -25,6 +26,8 @@ class ManagerViews:
             is_valid_sex = sex_validator.validate(request.POST.get('sex'))
 
             if employee_form.is_valid() and is_valid_sex:
+                employee.updated_at = timezone.now()
+                employee.save()
                 employee_form.save()
                 return JsonResponse({
                     'msg': 'OK: Successfully edited!',
@@ -82,7 +85,6 @@ class ManagerViews:
             post = request.POST.copy()
             hired_at = casting.cast_hired_at(post['hired_at'])
 
-            print(post)
             if isinstance(hired_at, datetime) and hired_at <= datetime.now():
                 post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
                 request.POST = post
@@ -121,6 +123,8 @@ class ManagerViews:
             manager_form = ManagerForm(request.POST, instance=manager)
 
             if manager_form.is_valid():
+                manager.updated_at = timezone.now()
+                manager.save()
                 manager_form.save()
                 return JsonResponse(
                     {
@@ -150,6 +154,7 @@ class ManagerViews:
         if request.method == 'POST':
             manager = get_object_or_404(Manager, id=id)
             manager.is_active = False
+            manager.updated_at = timezone.now()
             manager.save()
             return JsonResponse(
                 {
@@ -162,6 +167,7 @@ class ManagerViews:
         if request.method == 'POST':
             employee = get_object_or_404(Employee, id=id)
             employee.is_active = False
+            employee.updated_at = timezone.now()
             employee.save()
             return JsonResponse(
                 {
