@@ -4,11 +4,9 @@ import AcoesButtons from "../buttons/AcoesButtons";
 import CardStatusManager from "../cards/status/CardStatusManager";
 import InsertManager from "../buttons/InsertManager";
 import axios from 'axios';
-import { get } from "react-hook-form";
 
 let managers = []
 
-// -------------------------------------------------------------------------------------------------------------------------
 const getManagersList =  () => {
     const endpoint = 'http://127.0.0.1:8000/list-manager/';
     const response =  axios.get(endpoint)
@@ -16,7 +14,6 @@ const getManagersList =  () => {
         .catch((err) => {
             console.log("Erro: avise o DEV: " + err)
         })
-
 }
 
 function setManagers(managersAPI) {
@@ -42,41 +39,6 @@ function setManagers(managersAPI) {
 
 getManagersList()
 const new_managers = JSON.parse(localStorage.getItem("managers"));
-//localStorage.clear()
-
-// const tableData = [
-//     {
-//          name:  "Nicholas Laplace",
-//          user: "default",
-//          email: "laplace@gmail.com",
-//          cargo: "Gerente",
-//          is_active: "true",
-//          hired_at: "11/05/2022",
-//          options: <AcoesButtons />,
-//      },
-//      {
-//         name: "Pitagoras Samos",
-//         user: "default",
-//          email: "pitagoras@gmail.com",
-//          cargo: "Gerente",
-//          is_active: "false",
-//          hired_at: "30/01/2017",
-//          options: <AcoesButtons />,
-//      },
-//      {
-//         name: "Pitagoras Samos",
-//         user: "default",
-//          email: "pitagoras@gmail.com",
-//          cargo: "Gerente",
-//          is_active: "false",
-//          hired_at: "30/01/2017",
-//          options: <AcoesButtons />,
-//      },
-//  ];
-
-// console.log(new_managers)
-// console.log(tableData)
-
 
 const TableManager = () => {
     return (
