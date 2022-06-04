@@ -14,6 +14,9 @@ import PresenceControlView from "./views/atividades/PresenceControlView";
 import ManagerViewForm from "./components/forms/ManagerViewForm";
 import ManagerEditForm from "./components/forms/ManagerEditForm";
 import ManagerInactiveForm from "./components/forms/ManagerInactiveForm";
+import EmployeeViewForm from "./components/forms/EmployeeViewForm";
+import EmployeeEditForm from "./components/forms/EmployeeEditForm";
+import EmployeeInactiveForm from "./components/forms/EmployeeInactiveForm";
 
 function App() {
     return (
@@ -32,6 +35,9 @@ function App() {
                 <Route path="/api/manager/formViewManager/:id" element={<ManagerViewForm />} />
                 <Route path="/api/manager/formEditManager/:id" element={<ManagerEditForm />} />
                 <Route path="/api/manager/formInactiveManager/:id" element={<ManagerInactiveForm />} />
+                <Route path="/api/employee/formViewEmployee/:id" element={<EmployeeViewForm />} />
+                <Route path="/api/employee/formEditEmployee/:id" element={<EmployeeEditForm />} />
+                <Route path="/api/employee/formInactiveEmployee/:id" element={<EmployeeInactiveForm />} />
             </Routes>
         </Router>
     );
