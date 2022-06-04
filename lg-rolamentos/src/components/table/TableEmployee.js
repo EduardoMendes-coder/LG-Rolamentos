@@ -97,7 +97,7 @@ const TableEmployee = () => {
                                         <Link className="linkForm" to={"/api/employee/formEditEmployee/" + tdata.id}>Editar</Link>
                                     </Button>
                                     <Button className="acaoE demitir" outline>
-                                        <Link className="linkForm" to={"/api/manager/formInactiveEmployee/" + tdata.id}>Demitir</Link>
+                                        <Link className="linkForm" to={"/api/employee/formInactiveEmployee/" + tdata.id}>Demitir</Link>
                                     </Button>
                                 </div>
                             </td>
