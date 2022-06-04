@@ -39,8 +39,7 @@ class ManagerViews:
     def add_employee(request):
         if request.method == 'POST':
             post = request.POST.copy()
-            post['sex'] = request.POST.get('sex').lower()
-            post['sex'] = 'other' if not post['sex'] else post['sex']
+            post['sex'] = 'other' if not post['sex'] else post['sex'].lower()
             request.POST = post
             employee_form = EmployeeForm(request.POST)
 
