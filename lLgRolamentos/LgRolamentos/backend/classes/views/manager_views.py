@@ -59,9 +59,9 @@ class ManagerViews:
     @staticmethod
     def list_employees(request):
         if request.method == 'GET':
-            response = [employee.json_object() for employee in Employee.objects.all()]
+            response = [employee.json_object() for employee in Employee.objects.all().order_by('is_active').reverse()]
             return JsonResponse({
-                'teste': response
+                'Employees': response
             })
 
     @staticmethod

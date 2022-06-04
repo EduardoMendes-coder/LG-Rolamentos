@@ -21,5 +21,5 @@ def main():
 
 
 if __name__ == '__main__':
-    threading.Thread(target=threads.presence_control_thread).start()
+    #threading.Thread(target=threads.presence_control_thread).start()
     main()

@@ -16,6 +16,7 @@ urlpatterns = [
  path('edit-advertence/<int:id>/', AdvertenceViews.edit_advertence),
  path('add-merit/', MeritViews.add_merit),
  path('edit-merit/<int:id>/', MeritViews.edit_merit),
+ path('list-merit/', MeritViews.list_merit),
  path('add-manager/', ManagerViews.add_manager),
  path('edit-manager/<int:id>/', ManagerViews.edit_manager),
  path('list-manager/', ManagerViews.list_manager),

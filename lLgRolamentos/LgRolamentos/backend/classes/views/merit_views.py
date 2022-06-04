@@ -49,9 +49,10 @@ class MeritViews:
 
     @staticmethod
     def list_merit(request):
-        response = [merit.__repr__() + ' - ' for merit in Merit.objects.all()]
-        return JsonResponse(
-            {
-                'merit': response
-            }
-        )
+        if request.method == 'GET':
+            response = [merit.to_json() for merit in Merit.objects.all()]
+            return JsonResponse(
+                {
+                    'Merits': response
+                }
+            )

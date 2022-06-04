@@ -16,6 +16,17 @@ class Advertence(models.Model):
     def __repr__(self):
         return f'({self.name} | {self.employee} | {self.manager} | {self.note})'
 
+    def to_json(self):
+        return dict({
+            'id': self.id,
+            'name': self.name,
+            'employee': self.employee.json_object(),
+            'manager': self.manager.to_json(),
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'note': self.note
+        })
+
 class AdvertenceForms(forms.ModelForm):
     class Meta:
         model = Advertence

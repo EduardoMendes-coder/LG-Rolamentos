@@ -25,12 +25,13 @@ class AdvertenceViews:
 
     @staticmethod
     def list_advertence(request):
-        response = [advertence.__repr__() + ' - ' for advertence in Advertence.objects.all()]
-        return JsonResponse(
-            {
-                'advertencia': response
-            }
-        )
+        if request.method == 'GET':
+            response = [advertence.to_json() for advertence in Advertence.objects.all()]
+            return JsonResponse(
+                {
+                    'Advertences': response
+                }
+            )
 
     @staticmethod
     def edit_advertence(request, id):
