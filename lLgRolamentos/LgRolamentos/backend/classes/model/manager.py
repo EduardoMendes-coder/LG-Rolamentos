@@ -29,4 +29,4 @@ class Manager(models.Model):
 class ManagerForm(forms.ModelForm):
     class Meta:
         model = Manager
-        fields = ['name', 'email', 'address', 'pis', 'user', 'password', 'is_active', 'hired_at']
+        fields = ['name', 'address', 'pis', 'user', 'password', 'is_active']
