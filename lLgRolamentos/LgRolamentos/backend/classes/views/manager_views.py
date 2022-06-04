@@ -7,6 +7,8 @@ from django.http.request import QueryDict
 import bcrypt
 import smtplib
 from email.message import EmailMessage
+from backend.utils import casting
+from datetime import datetime, timedelta
 
 
 class ManagerViews:
@@ -68,23 +70,26 @@ class ManagerViews:
     def add_manager(request):
         if request.method == 'POST':
             post = request.POST.copy()
-            post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
+            hired_at = casting.cast_hired_at(post['hired_at'])
 
-            request.POST = post
-            manager_form = ManagerForm(request.POST)
+            print(post)
+            if isinstance(hired_at, datetime) and hired_at <= datetime.now():
+                post['password'] = bcrypt.hashpw(post['password'].encode('utf-8'), bcrypt.gensalt())
+                request.POST = post
+                manager_form = ManagerForm(request.POST)
 
-            if manager_form.is_valid():
-                manager_form.save()
-                return JsonResponse(
-                    {
-                        'status': 200,
-                        'msg': 'Success'
-                    }
-                )
+                if manager_form.is_valid():
+                    manager_form.save()
+                    return JsonResponse(
+                        {
+                            'status': 200,
+                            'msg': 'Success'
+                        }
+                    )
             return JsonResponse(
                 {
                     'status': 400,
-                    'msg': 'ERROR' + str(manager_form)
+                    'msg': 'ERROR'
                 }
             )
 

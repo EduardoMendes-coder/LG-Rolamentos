@@ -12,7 +12,7 @@ def cast_salary(salary):
 
 def cast_hired_at(hired_at):
     try:
-        new_hired_at = datetime.strptime(hired_at, '%Y-%m-%d %H:%M:%S-%f')
+        new_hired_at = datetime.strptime(hired_at, '%Y-%m-%d')
     except Exception as e:
         return hired_at
     else:
