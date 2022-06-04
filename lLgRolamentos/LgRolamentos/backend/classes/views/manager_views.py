@@ -3,12 +3,12 @@ from backend.classes.model.employee import Employee, EmployeeForm
 from backend.classes.model.manager import Manager, ManagerForm
 from backend.utils import casting, sex_validator
 from django.shortcuts import get_object_or_404
-from django.http.request import QueryDict
 import bcrypt
 import smtplib
 from email.message import EmailMessage
 from backend.utils import casting
 from datetime import datetime, timedelta
+from backend.classes.model.role import Role
 
 
 class ManagerViews:
@@ -65,6 +65,16 @@ class ManagerViews:
             return JsonResponse({
                 'Employees': response
             })
+
+    @staticmethod
+    def list_roles(request):
+        if request.method == 'GET':
+            response = [role.to_json() for role in Role.objects.all().filter(is_active=True)]
+            return JsonResponse(
+                {
+                    'Roles': response
+                }
+            )
 
     @staticmethod
     def add_manager(request):
