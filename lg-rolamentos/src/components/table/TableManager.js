@@ -3,25 +3,80 @@ import css from "./TableManager.css";
 import AcoesButtons from "../buttons/AcoesButtons";
 import CardStatusManager from "../cards/status/CardStatusManager";
 import InsertManager from "../buttons/InsertManager";
+import axios from 'axios';
+import { get } from "react-hook-form";
 
-const tableData = [
-    {
-        name: "Nicholas Laplace",
-        email: "laplace@gmail.com",
-        cargo: "Gerente",
-        status: "done",
-        dataAdmissao: "11/05/2022",
-        opcoes: <AcoesButtons />
-    },
-    {
-        name: "Pitagoras Samos",
-        email: "pitagoras@gmail.com",
-        cargo: "Gerente",
-        status: "done",
-        dataAdmissao: "30/01/2017",
-        opcoes: <AcoesButtons />
-    },
-];
+let managers = []
+
+// -------------------------------------------------------------------------------------------------------------------------
+const getManagersList =  () => {
+    const endpoint = 'http://127.0.0.1:8000/list-manager/';
+    const response =  axios.get(endpoint)
+        .then((res) => setManagers(res.data.Managers))
+        .catch((err) => {
+            console.log("Erro: avise o DEV: " + err)
+        })
+
+}
+
+function setManagers(managersAPI) {
+    for (let i = 0; i < managersAPI.length; i++) {
+        managers.push(
+            {
+                id: managersAPI[i].id,
+                name: managersAPI[i].name,
+                user: managersAPI[i].user,
+                email: managersAPI[i].email,
+                pis: managersAPI[i].pis,
+                address: managersAPI[i].address,
+                is_active: managersAPI[i].is_active,
+                hired_at: managersAPI[i].hired_at,
+                created_at: managersAPI[i].created_at,
+                updated_at: managersAPI[i].updated_at,
+                //options: <AcoesButtons />,
+            }
+        )
+    }
+    localStorage.setItem('managers', JSON.stringify(managers))
+}
+
+getManagersList()
+const new_managers = JSON.parse(localStorage.getItem("managers"));
+//localStorage.clear()
+
+// const tableData = [
+//     {
+//          name:  "Nicholas Laplace",
+//          user: "default",
+//          email: "laplace@gmail.com",
+//          cargo: "Gerente",
+//          is_active: "true",
+//          hired_at: "11/05/2022",
+//          options: <AcoesButtons />,
+//      },
+//      {
+//         name: "Pitagoras Samos",
+//         user: "default",
+//          email: "pitagoras@gmail.com",
+//          cargo: "Gerente",
+//          is_active: "false",
+//          hired_at: "30/01/2017",
+//          options: <AcoesButtons />,
+//      },
+//      {
+//         name: "Pitagoras Samos",
+//         user: "default",
+//          email: "pitagoras@gmail.com",
+//          cargo: "Gerente",
+//          is_active: "false",
+//          hired_at: "30/01/2017",
+//          options: <AcoesButtons />,
+//      },
+//  ];
+
+// console.log(new_managers)
+// console.log(tableData)
+
 
 const TableManager = () => {
     return (
@@ -33,14 +88,14 @@ const TableManager = () => {
                     <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Cargo</th>
+                        <th>Usuario</th>
                         <th>Status</th>
                         <th>Data de Admissão</th>
                         <th className="opAcao">Ações</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {tableData.map((tdata, index) => (
+                    {new_managers.map((tdata, index) => (
                         <tr key={index} className="border-top">
                             <td>
                                 <div className="d-flex align-items-center p-2">
@@ -50,18 +105,18 @@ const TableManager = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td>{tdata.cargo}</td>
+                            <td>{tdata.user}</td>
                             <td>
-                                {tdata.status === "pending" ? (
-                                    <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
-                                ) : tdata.status === "holt" ? (
-                                    <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
-                                ) : (
+                                {tdata.is_active === "true" ? (
                                     <span className="p-2 bg-success rounded-circle d-inline-block ms-3"></span>
+                                ) : tdata.is_active === "false" ? (
+                                    <span className="p-2 bg-danger rounded-circle d-inline-block ms-3"></span>
+                                ) : (
+                                    <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
                                 )}
                             </td>
-                            <td>{tdata.dataAdmissao}</td>
-                            <td>{tdata.opcoes}</td>
+                            <td>{tdata.hired_at}</td>
+                            <td>{<AcoesButtons />}</td>
                         </tr>
                     ))}
                     </tbody>
@@ -70,5 +125,6 @@ const TableManager = () => {
         </div>
     );
 };
+
 
 export default TableManager;
