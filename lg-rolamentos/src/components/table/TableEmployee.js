@@ -1,7 +1,6 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import css from './TableEmployee.css';
 import CardStatusEmployee from "../cards/status/CardStatusEmployee";
-import AcoesButtons from "../buttons/AcoesButtons";
 import CardCotacao from "../cards/cotacoes/CardCotacao";
 import axios from 'axios';
 import InsertEmployee from "../buttons/InsertEmployee";
@@ -11,13 +10,16 @@ let employees = []
 const getEmployeeList =  () => {
     const endpoint = 'http://127.0.0.1:8000/list/';
     const response =  axios.get(endpoint)
-        .then((res) => setEmployees(res.data.teste))
+        .then((res) => setEmployees(res.data.Employees))
         .catch((err) => {
             console.log("Erro: avise o DEV: " + err)
         })
 }
 
 function setEmployees(employeesAPI) {
+    let actives = 0
+    let inactives = 0
+
     for (let i = 0; i < employeesAPI.length; i++) {
         employees.push(
             {
@@ -32,8 +34,16 @@ function setEmployees(employeesAPI) {
                 updated_at: employeesAPI[i].updated_at,
             }
         )
+        if (employeesAPI[i].is_active === true) {
+            actives += 1
+        }
+        else if (employeesAPI[i].is_active === false) {
+            inactives += 1
+        }
     }
     localStorage.setItem('employees', JSON.stringify(employees))
+    localStorage.setItem('activesEmployee', JSON.stringify(actives))
+    localStorage.setItem('inactivesEmployee', JSON.stringify(inactives))
 }
 
 getEmployeeList()
@@ -76,7 +86,6 @@ const TableEmployee = () => {
                                 )}
                             </td>
                             <td>{tdata.hired_at}</td>
-                            <td>{<AcoesButtons />}</td>
                         </tr>
                     ))}
                     </tbody>

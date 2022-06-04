@@ -1,9 +1,10 @@
 import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
 import css from "./TableManager.css";
-import AcoesButtons from "../buttons/AcoesButtons";
 import CardStatusManager from "../cards/status/CardStatusManager";
 import InsertManager from "../buttons/InsertManager";
 import axios from 'axios';
+import {Button} from "reactstrap";
+import {Link} from "react-router-dom";
 
 let managers = []
 
@@ -89,7 +90,19 @@ const TableManager = () => {
                                 )}
                             </td>
                             <td>{tdata.hired_at}</td>
-                            <td>{<AcoesButtons />}</td>
+                            <td>
+                                <div className="acoes">
+                                    <Button className="acao consultar" outline>
+                                        <Link className="linkForm" to={"/api/manager/formViewManager/" + tdata.id}>Consultar</Link>
+                                    </Button>
+                                    <Button className="acao editar" outline>
+                                        <Link className="linkForm" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
+                                    </Button>
+                                    <Button className="acao demitir" outline>
+                                        <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Demitir</Link>
+                                    </Button>
+                                </div>
+                            </td>
                         </tr>
                     ))}
                     </tbody>
