@@ -29,7 +29,6 @@ function ManagerEditForm() {
 
     const [name, setName] = useState(old_name);
     const [email, setEmail] = useState(old_email);
-    //const [old_password, setOldPassword] = useState('');
     const [password, setPassword] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
@@ -132,11 +131,10 @@ function ManagerEditForm() {
                     <input onChange={handleName} className="input"
                            value={name} type="text" name="name" />
 
-                    {/* <label className="label">Email</label>  */}
                     <input onChange={handleEmail} className="input"
                            value={email} type="hidden" name="email"/>
 
-                    <label className="label">EndereÃ§o</label>
+                    <label className="label">Endereço</label>
                     <input onChange={handleAddress} className="input"
                            value={address} type="text" name="address"/>
 
@@ -156,7 +154,6 @@ function ManagerEditForm() {
                     <input onChange={handleNewPassword} className="input"
                            type="password" name="new_password"/>
 
-                    {/* <label className="label">Contratado Em</label>  */}
                     <input onChange={handleHiredAt} className="input"
                            value={hiredAt} type="hidden" name="hired_at"/>
 
