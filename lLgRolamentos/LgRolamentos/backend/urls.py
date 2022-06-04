@@ -21,5 +21,7 @@ urlpatterns = [
  path('edit-manager/<int:id>/', ManagerViews.edit_manager),
  path('list-manager/', ManagerViews.list_manager),
  path('retrieve-password/', ManagerViews.retrieve_password),
- path('get-dollar-price', get_dollar_price)
+ path('get-dollar-price', get_dollar_price),
+ path('demit-manager/<int:id>/', ManagerViews.demit_manager),
+ path('demit-employee/<int:id>/', ManagerViews.demit_employee)
 ]

@@ -126,10 +126,10 @@ class ManagerViews:
         if request.method == 'POST':
             manager = get_object_or_404(Manager, id=id)
             manager.is_active = False
-            response = 'Gerente demitido com sucesso!'
+            manager.save()
             return JsonResponse(
                 {
-                    'demit': response
+                    'demit': 200
                 }
             )
 
@@ -138,10 +138,10 @@ class ManagerViews:
         if request.method == 'POST':
             employee = get_object_or_404(Employee, id=id)
             employee.is_active = False
-            response = 'Funcionário demitido com sucesso!'
+            employee.save()
             return JsonResponse(
                 {
-                    'demit': response
+                    'demit': 200
                 }
             )
 
