@@ -3,6 +3,7 @@
     flex-direction: row;
     color: grey;
     margin-top: -50px;
+    width: 100%;
 }
 
 .card{
@@ -20,4 +21,9 @@
 .cardGuarani{
     background-color: dodgerblue;
     color: white;
+}
+
+.valDol{
+    display: flex;
+    justify-content: center;
 }
