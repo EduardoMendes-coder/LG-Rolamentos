@@ -1,53 +1,21 @@
 import { useState } from 'react';
 import css from "./ManagerForm.css";
-import { useParams } from 'react-router';
 
 function ManagerForm() {
-    const { id } = useParams();
-    let old_name;
-    let old_email;
-    let old_address;
-    let old_pis;
-    let old_user;
-    let old_hired_at;
-    let old_is_active
-
-    const managers = JSON.parse(localStorage.getItem("managers"));
-
-    for (let i = 0; i < managers.length; i ++) {
-        if (managers[i].id == id) {
-            old_name = managers[i].name;
-            old_email = managers[i].email;
-            old_address = managers[i].address;
-            old_pis = managers[i].pis;
-            old_user = managers[i].user;
-            old_hired_at = managers[i].hired_at;
-            old_is_active = managers[i].is_active;
-            break;
-        }
-    }
-
-    const [name, setName] = useState(old_name);
-    const [email, setEmail] = useState(old_email);
-    //const [old_password, setOldPassword] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
-    const [address, setAddress] = useState(old_address);
-    const [pis, setPis] = useState(old_pis);
-    const [user, setUser] = useState(old_user);
-    const [newPassword, setConfirmPassword] = useState('');
-    const [hiredAt, setHiredAt] = useState(old_hired_at);
-    const [is_active, setIsActive] = useState(old_is_active);
+    const [address, setAddress] = useState('');
+    const [pis, setPis] = useState('');
+    const [user, setUser] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [hiredAt, setHiredAt] = useState('');
 
 
     const handleName = (e) => {
         setName(e.target.value);
-        setSubmitted(false);
-    };
-
-    const handleIsActive = (e) => {
-        setIsActive(e.target.value);
         setSubmitted(false);
     };
 
@@ -76,7 +44,7 @@ function ManagerForm() {
         setSubmitted(false);
     };
 
-    const handleNewPassword = (e) => {
+    const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
         setSubmitted(false);
     };
@@ -88,7 +56,7 @@ function ManagerForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name === '' ||  email === '' || password === '') {
+        if (name === '' || email === '' || password === '') {
             setError(true);
         } else {
             setSubmitted(true);
@@ -127,16 +95,16 @@ function ManagerForm() {
                 {successMessage()}
             </div>
             <div className="form">
-                <form action={"http://127.0.0.1:8000/edit-manager/" + id + "/"} method="post">
+                <form action="http://127.0.0.1:8000/add-manager/" method="post">
                     <label className="label">Nome</label>
                     <input onChange={handleName} className="input"
                            value={name} type="text" name="name" />
 
-                    {/* <label className="label">Email</label>  */}
+                    <label className="label">Email</label>
                     <input onChange={handleEmail} className="input"
-                           value={email} type="hidden" name="email"/>
+                           value={email} type="email" name="email"/>
 
-                    <label className="label">EndereÃ§o</label>
+                    <label className="label">Endereço</label>
                     <input onChange={handleAddress} className="input"
                            value={address} type="text" name="address"/>
 
@@ -150,20 +118,19 @@ function ManagerForm() {
 
                     <label className="label">Senha</label>
                     <input onChange={handlePassword} className="input"
-                           type="password" name="password" />
+                           value={password} type="password" name="password" />
 
-                    <label className="label">Nova Senha </label>
-                    <input onChange={handleNewPassword} className="input"
-                           type="password" name="new_password"/>
+                    <label className="label">Confirmar Senha</label>
+                    <input onChange={handleConfirmPassword} className="input"
+                           value={confirmPassword} type="password" name="confirm_password"/>
 
-                    {/* <label className="label">Contratado Em</label>  */}
+                    <label className="label">Contratado Em</label>
                     <input onChange={handleHiredAt} className="input"
-                           value={hiredAt} type="hidden" name="hired_at"/>
+                           value={hiredAt} type="date" name="hired_at"/>
 
-                    <input onChange={handleIsActive} type="hidden" name="is_active" value={old_is_active}></input>
+                    <input type="hidden" name="is_active" value="true"></input>
 
                     <input className="btn" type="submit" value="Submit"></input>
-
                 </form>
             </div>
         </div>
