@@ -13,14 +13,16 @@ function CardStatusManager(){
                 <h5 style={{color: "grey"}}></h5>
             </div>
             <div className="cardStatusManager">
-                <Card className="cardAtivoManager">
+                <Card className="cardMan cardAtivoManager">
                     <CardBody>
-                        <h5>Gerentes Ativos: {actives}</h5>
+                        <h5 className="txStManag textAtivosManag">Gerentes Ativos:</h5>
+                        <h2 className="numSM numAtiv">{actives}</h2>
                     </CardBody>
                 </Card>
-                <Card className="cardInativoManager">
+                <Card className="cardMan cardInativoManager">
                     <CardBody>
-                        <h5>Gerentes Inativos: {inactives}</h5>
+                        <h5 className="txStManag textInativosManag">Gerentes Inativos:</h5>
+                        <h2  className="numSM numInat">{inactives}</h2>
                     </CardBody>
                 </Card>
             </div>

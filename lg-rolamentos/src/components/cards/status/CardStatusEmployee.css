@@ -16,9 +16,9 @@
 }
 
 .cardSt{
-    width: 350px;
+    width: 310px;
     color: white;
-    height: 130px;
+    height: 120px;
 }
 
 .cardAtivo{
@@ -26,7 +26,7 @@
 }
 
 .txSt{
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .cardInativo{
@@ -36,5 +36,5 @@
 .numS{
     display: flex;
     justify-content: center;
-    font-size: 35px;
+    font-size: 30px;
 }
