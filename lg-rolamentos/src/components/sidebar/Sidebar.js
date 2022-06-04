@@ -23,19 +23,19 @@ const Sidebar = () => {
 
                 <CDBSidebarContent className="sidebar-content">
                     <CDBSidebarMenu>
-                        <NavLink exact to="/" activeClassName="activeClicked">
-                            <CDBSidebarMenuItem icon="home" >Home</CDBSidebarMenuItem>
+                        <NavLink exact to="/" activeClassName="activeClicked" onClick="window.location.reload()">
+                            <CDBSidebarMenuItem icon="home" >Home</CDBSidebarMenuItem >
                         </NavLink>
-                        <NavLink exact to="/api/manager" activeClassName="activeClicked">
+                        <NavLink exact to="/api/manager" activeClassName="activeClicked" onClick="window.location.reload()">
                             <CDBSidebarMenuItem icon="user">Gerente</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/api/activities" activeClassName="activeClicked">
+                        <NavLink exact to="/api/activities" activeClassName="activeClicked" onClick="window.location.reload()">
                             <CDBSidebarMenuItem icon="table">Atividades</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/api/dashboard" activeClassName="activeClicked">
+                        <NavLink exact to="/api/dashboard" activeClassName="activeClicked" onClick="window.location.reload()">
                             <CDBSidebarMenuItem icon="chart-line">Dashboard</CDBSidebarMenuItem>
                         </NavLink>
-                        <NavLink exact to="/api/calculadora" activeClassName="activeClicked">
+                        <NavLink exact to="/api/calculadora" activeClassName="activeClicked" onClick="window.location.reload()">
                             <CDBSidebarMenuItem icon="calculator">Calculadora</CDBSidebarMenuItem>
                         </NavLink>
                     </CDBSidebarMenu>

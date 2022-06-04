@@ -98,7 +98,7 @@ const TableManager = () => {
                                     <Button className="acao editar" outline>
                                         <Link className="linkForm" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
                                     </Button>
-                                    <Button className="acao demitir" outline>
+                                    <Button className="acao demitir" outline >
                                         <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Demitir</Link>
                                     </Button>
                                 </div>
