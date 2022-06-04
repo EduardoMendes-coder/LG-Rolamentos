@@ -18,6 +18,13 @@ class Manager(models.Model):
     def __repr__(self):
         return f'({self.name} | {self.email} | {self.address} | {self.pis} | { self.user} | {self.password})'
 
+    def to_json(self):
+        return dict({
+            'id': self.id, 'name': self.name, 'email': self.email, 'address': self.address, 'pis': self.pis,
+            'is_active': self.is_active, 'hired_at': self.hired_at, 'created_at': self.created_at,
+            'user': self.user, 'updated_at': self.updated_at
+        })
+
 
 class ManagerForm(forms.ModelForm):
     class Meta:

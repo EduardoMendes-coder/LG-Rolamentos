@@ -114,10 +114,10 @@ class ManagerViews:
     @staticmethod
     def list_manager(request):
         if request.method == 'GET':
-            response = [manager.__repr__() + ' - ' for manager in Manager.objects.all()]
+            response = [manager.to_json() for manager in Manager.objects.all()]
             return JsonResponse(
                 {
-                    'Manager': response
+                    'Managers': response
                 }
             )
 
