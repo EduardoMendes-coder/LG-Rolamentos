@@ -122,6 +122,30 @@ class ManagerViews:
             )
 
     @staticmethod
+    def demit_manager(request, id):
+        if request.method == 'POST':
+            manager = get_object_or_404(Manager, id=id)
+            manager.is_active = False
+            response = 'Gerente demitido com sucesso!'
+            return JsonResponse(
+                {
+                    'demit': response
+                }
+            )
+
+    @staticmethod
+    def demit_employee(request, id):
+        if request.method == 'POST':
+            employee = get_object_or_404(Employee, id=id)
+            employee.is_active = False
+            response = 'Funcionário demitido com sucesso!'
+            return JsonResponse(
+                {
+                    'demit': response
+                }
+            )
+
+    @staticmethod
     def retrieve_password(request):
         if request.method == 'POST':
             manager = get_object_or_404(Manager, email=request.POST.get('email'))

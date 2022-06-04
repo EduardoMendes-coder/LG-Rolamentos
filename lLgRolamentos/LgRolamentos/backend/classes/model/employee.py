@@ -28,6 +28,7 @@ class Employee(models.Model):
 
     def json_object(self):
         return {
+            'id': self.id,
             'name': self.name,
             'age': self.age,
             'email': self.email,
