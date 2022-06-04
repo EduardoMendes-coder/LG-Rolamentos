@@ -9,6 +9,8 @@ function EmployeeForm() {
     const [address, setAddress] = useState('');
     const [pis, setPis] = useState('');
     let [sex, setSex] = useState('');
+    const [age, setAge] = useState('');
+    const [rg, setRg] = useState('');
     const [role, setRole] = useState('');
     const [nationality, setNationality] = useState('');
     const [salary, setSalary] = useState('');
@@ -38,6 +40,16 @@ function EmployeeForm() {
 
     const handleRole = (e) => {
         setRole(e.target.value);
+        setSubmitted(false);
+    };
+
+    const handleAge = (e) => {
+        setAge(e.target.value);
+        setSubmitted(false);
+    };
+
+    const handleRg = (e) => {
+        setRg(e.target.value);
         setSubmitted(false);
     };
 
@@ -134,6 +146,14 @@ function EmployeeForm() {
                     <label className="label">Cargo</label>
                     <input onChange={handleRole} className="input"
                            value={role} type="text" name="role"/>
+
+                    <label className="label">Age</label>
+                    <input onChange={handleAge} className="input"
+                           value={age} type="number" name="age"/>
+
+                    <label className="label">RG</label>
+                    <input onChange={handleRg} className="input"
+                           value={rg} type="number" name="rg"/>
 
                     <label className="label">Nacionalidade</label>
                     <input onChange={handleNationality} className="input"
