@@ -68,9 +68,6 @@ const TableMerits = () => {
                                     <Button className="acao consultar" outline>
                                         <Link className="linkForm" to={"/api/activities/merits/formViewMerit/" + tdata.id}>Consultar</Link>
                                     </Button>
-                                    <Button className="acao editar" outline>
-                                        <Link className="linkForm" to={"/api/activities/merits/formEditMerit/" + tdata.id}>Editar</Link>
-                                    </Button>
                                     <Button className="acao demitir" outline >
                                         <Link className="linkForm" to={"/api/activities/merits/formDeleteMerit/" + tdata.id}>Excluir</Link>
                                     </Button>

@@ -19,7 +19,6 @@ import FormInactiveEmployee from "../src/components/forms/FormInactiveEmployee";
 import FormInactiveManager from "../src/components/forms/FormInactiveManager";
 import FormInsertMerit from "../src/components/forms/FormInsertMerit";
 import FormViewMerit from "../src/components/forms/FormViewMerit";
-import FormEditMerit from "../src/components/forms/FormEditMerit";
 import FormDeleteMerit from "../src/components/forms/FormDeleteMerit";
 
 function App() {
@@ -44,7 +43,6 @@ function App() {
                 <Route path="/api/manager/formInactiveManager/:id" element={<FormInactiveManager />} />
                 <Route path="/api/activities/merits/formInsertMerit" element={<FormInsertMerit />} />
                 <Route path="/api/activities/merits/formViewMerit/:id" element={<FormViewMerit />} />
-                <Route path="/api/activities/merits/formEditMerit/:id" element={<FormEditMerit />} />
                 <Route path="/api/activities/merits/formDeleteMerit/:id" element={<FormDeleteMerit />} />
             </Routes>
         </Router>
