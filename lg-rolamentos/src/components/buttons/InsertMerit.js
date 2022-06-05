@@ -7,7 +7,7 @@ function ButtonInsertMerit(){
         <div className='mainDiv'>
             <div className="botaoCadastrar">
                 <Button className="insert">
-                    <Link className="linkForm" to="/api/activities/formInsertMerit">Cadastrar Mérito</Link>
+                    <Link className="linkForm" to="/api/activities/merits/formInsertMerit">Cadastrar Mérito</Link>
                 </Button>
             </div>
         </div>

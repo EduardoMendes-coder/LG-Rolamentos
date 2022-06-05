@@ -36,7 +36,6 @@ function setMerits(meritsAPI) {
 
 getMeritsList()
 const new_merits = JSON.parse(localStorage.getItem("merits"));
-console.log(new_merits)
 
 const TableMerits = () => {
     return (
@@ -67,13 +66,13 @@ const TableMerits = () => {
                             <td>
                                 <div className="acoes">
                                     <Button className="acao consultar" outline>
-                                        <Link className="linkForm" to={"/api/manager/formViewManager/" + tdata.id}>Consultar</Link>
+                                        <Link className="linkForm" to={"/api/activities/merits/formViewMerit/" + tdata.id}>Consultar</Link>
                                     </Button>
                                     <Button className="acao editar" outline>
-                                        <Link className="linkForm" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
+                                        <Link className="linkForm" to={"/api/activities/merits/formEditMerit/" + tdata.id}>Editar</Link>
                                     </Button>
                                     <Button className="acao demitir" outline >
-                                        <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Excluir</Link>
+                                        <Link className="linkForm" to={"/api/activities/merits/formDeleteMerit/" + tdata.id}>Excluir</Link>
                                     </Button>
                                 </div>
                             </td>
