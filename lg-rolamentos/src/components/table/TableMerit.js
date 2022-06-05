@@ -3,6 +3,7 @@ import css from "./TableMerit.css";
 import axios from 'axios';
 import {Button} from "reactstrap";
 import {Link} from "react-router-dom";
+import ButtonInsertMerit from "../buttons/InsertMerit";
 
 let merits = []
 
@@ -40,12 +41,13 @@ console.log(new_merits)
 const TableMerits = () => {
     return (
         <div className='containerMain'>
+            <ButtonInsertMerit />
             <CardBody>
                 <Table className="no-wrap mt-3 align-middle" responsive borderless>
                     <thead>
                     <tr>
                         <th>Descrição</th>
-                        <th>Funcionario</th>
+                        <th>Funcionário</th>
                         <th>Data de Criação</th>
                         <th className="opAcao">Ações</th>
                     </tr>
@@ -71,7 +73,7 @@ const TableMerits = () => {
                                         <Link className="linkForm" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
                                     </Button>
                                     <Button className="acao demitir" outline >
-                                        <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Demitir</Link>
+                                        <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Excluir</Link>
                                     </Button>
                                 </div>
                             </td>
