@@ -1,9 +1,10 @@
 import css from "./MeritsView.css";
+import TableMerit from "../../components/table/TableMerit";
 
 function MeritsView(){
     return(
-        <div>
-            <h1>MERITOS VIEW</h1>
+        <div className="contMerit">
+            <TableMerit />
         </div>
     )
 }
