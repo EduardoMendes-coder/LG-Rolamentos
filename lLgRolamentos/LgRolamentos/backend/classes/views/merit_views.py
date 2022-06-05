@@ -63,7 +63,7 @@ class MeritViews:
     @staticmethod
     def delete_merit(request,id):
         merit = get_object_or_404(Merit, id=id)
-        if request.method == 'DELETE':
+        if request.method == 'POST':
             merit.delete()
             return JsonResponse(
                 {
