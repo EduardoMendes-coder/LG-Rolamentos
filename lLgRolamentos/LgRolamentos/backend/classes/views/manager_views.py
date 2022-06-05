@@ -19,6 +19,7 @@ class ManagerViews:
             employee = get_object_or_404(Employee, id=id)
 
             post = request.POST.copy()
+            print(post)
             post['sex'] = request.POST.get('sex').lower()
             request.POST = post
 
