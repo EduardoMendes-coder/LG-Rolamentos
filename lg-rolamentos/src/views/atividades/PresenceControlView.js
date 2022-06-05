@@ -1,9 +1,45 @@
 import css from "./PresenceControlView.css";
+import { useState } from 'react';
 
 function PresenceControlView(){
+    const employees = JSON.parse(localStorage.getItem("employees"));
+    let [employeeId, setEmployeeId] = useState(employees[0].id);
+    const [fromDate, setFromDate] = useState('2022-01-01');
+    const [toDate, setToDate] = useState('2022-12-31');
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleFromDate = (e) => {
+        setFromDate(e.target.value);
+        setSubmitted(false);
+    };
+    const handleToDate = (e) => {
+        setToDate(e.target.value);
+        setSubmitted(false);
+    };
+    const handleEmployeeId = (e) => {
+        setEmployeeId(e.target.value);
+        setSubmitted(false);
+    };
+
     return(
         <div>
-            <h1>Presence control view</h1>
+            <div className="form">
+                <form action={"http://127.0.0.1:8000/get-presences/" + employeeId + "/" + fromDate + "/" + toDate} method="get">
+                    <label className="label">Funcionarios</label>
+                    <div>
+                        <select onChange={handleEmployeeId} name="employee_id">
+                            {employees.map((tdata, index) =>
+                                <option key={index} onChange={handleEmployeeId} name="employee_id" value={employeeId = tdata.id}><h6 className="mb-0">{tdata.name}</h6></option>
+                            )}
+                        </select>
+                    </div>
+                    <label>De</label>
+                    <input onChange={handleFromDate} className="input" value={fromDate} type="date" name="start_date" data-date="" data-date-format="DD MMMM YYYY"></input>
+                    <lable>Ate</lable>
+                    <input onChange={handleToDate} className="input" value={toDate} type="date" name="end_date" data-date="" data-date-format="DD MMMM YYYY"></input>
+                    <input className="btn" type="submit" value="Pesquisar"></input>
+                </form>
+            </div>
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import css from "./AdvertenceView.css";
+import TableAdvertence from "../../components/table/TableAdvertence";
 
 function AdvertenceView(){
     return(
-        <div>
-            <h1>Advertence view</h1>
+        <div className="contAdvertence">
+
         </div>
     )
 }
