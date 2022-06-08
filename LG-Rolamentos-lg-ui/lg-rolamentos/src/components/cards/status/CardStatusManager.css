@@ -1,0 +1,40 @@
+.textosManager{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.cardInfoManager{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardStatusManager{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.cardAtivoManager{
+    background-color: green;
+}
+
+.cardInativoManager{
+    background-color: red;
+}
+
+.cardMan{
+    width: 250px;
+    height: 120px;
+    color: white;
+}
+
+.numSM{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.txStManag{
+    font-size: 24px;
+}

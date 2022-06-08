@@ -1,0 +1,31 @@
+.containerMain{
+    margin-top: 70px;
+    margin-left: 280px;
+}
+
+.opAcao{
+    display: flex;
+    justify-content: center;
+}
+
+.consultar{
+    color: white !important;
+    background-color: green !important;
+}
+
+.demitir{
+    color: white !important;
+    background-color: red !important;
+}
+
+.acaoE{
+    width: 100px;
+    margin: 10px;
+}
+
+.acoes{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+}

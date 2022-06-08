@@ -1,0 +1,23 @@
+*{
+    font-size: 16px;
+}
+.sidebar{
+    position: fixed;
+}
+
+.sair{
+    background-color: rgba(255, 0, 0, 0.731);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0px;
+    width: 60px;
+    font-size: 18px;
+}
+
+.sair:hover{
+    background-color: rgba(255, 0, 0, 0.811);
+    transform: translate(-2px,-2px);
+    transition: 2s;
+    box-shadow: 10px 5px 5px rgb(42, 42, 42);
+}

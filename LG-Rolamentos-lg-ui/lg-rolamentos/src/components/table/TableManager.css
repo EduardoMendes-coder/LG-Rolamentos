@@ -1,0 +1,65 @@
+.containerMain{
+    margin-top: 70px;
+    margin-left: 280px;
+    width: 100%;
+}
+
+.opAcao{
+    display: flex;
+    justify-content: center;
+}
+
+.textosManager{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.cardInfoManager{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardStatusManager{
+    display: flex;
+    flex-direction: row;
+}
+
+.cardAtivoManager{
+    width: 250px;
+    color: white;
+    background-color: green;
+}
+
+.cardInativoManager{
+    width: 250px;
+    color: white;
+    background-color: red;
+}
+
+.consultar{
+    color: white !important;
+    background-color: green !important;
+}
+
+.editar{
+    color: white !important;
+    background-color: blue !important;
+}
+
+.demitir{
+    color: white !important;
+    background-color: red !important;
+}
+
+.acao{
+    width: 100px;
+    margin: 10px;
+}
+
+.acoes{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+}

@@ -1,0 +1,22 @@
+.botaoCadastrar{
+    display: flex;
+    width: 200px;
+    margin-top: 30px;
+
+}
+
+.mainDiv{
+    display: flex;
+    margin-right: 245px;
+    justify-content: flex-end;
+}
+
+.insert{
+    background-color: green !important;
+    color: white !important;
+}
+
+.linkForm{
+    color: white;
+    text-decoration: none;
+}
