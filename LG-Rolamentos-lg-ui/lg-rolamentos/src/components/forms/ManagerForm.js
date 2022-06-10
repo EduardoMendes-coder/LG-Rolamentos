@@ -89,39 +89,33 @@ function ManagerForm() {
     };
 
     return (
-        <div>
+        <div className='Principal' >
             <div className="messages">
                 {errorMessage()}
                 {successMessage()}
             </div>
+            <h1 className="d-flex justify-content-center">Cadastro de Gerentes</h1>
             <div className="form">
-                <form action="http://127.0.0.1:8000/add-manager/" method="post">
-                    <label className="label">Nome</label>
-                    <input onChange={handleName} className="input"
+                <form action="https://lg-rolamentos-api.herokuapp.com/add-manager/" method="post">
+                    <input onChange={handleName} placeholder="Nome" className="input"
                            value={name} type="text" name="name" />
 
-                    <label className="label">Email</label>
-                    <input onChange={handleEmail} className="input"
+                    <input onChange={handleEmail} placeholder="Email" className="input"
                            value={email} type="email" name="email"/>
 
-                    <label className="label">Endereço</label>
-                    <input onChange={handleAddress} className="input"
+                    <input onChange={handleAddress} placeholder="Endereço" className="input"
                            value={address} type="text" name="address"/>
 
-                    <label className="label">PIS</label>
-                    <input onChange={handlePis} className="input"
+                    <input onChange={handlePis} placeholder="PIS" className="input"
                            value={pis} type="text" name="pis"/>
 
-                    <label className="label">Usuario</label>
-                    <input onChange={handleUser} className="input"
+                    <input onChange={handleUser} placeholder="Usuario" className="input"
                            value={user} type="text" name="user"/>
 
-                    <label className="label">Senha</label>
-                    <input onChange={handlePassword} className="input"
+                    <input onChange={handlePassword} placeholder="Senha" className="input"
                            value={password} type="password" name="password" />
 
-                    <label className="label">Confirmar Senha</label>
-                    <input onChange={handleConfirmPassword} className="input"
+                    <input onChange={handleConfirmPassword} placeholder="Confirmar Senha" className="input"
                            value={confirmPassword} type="password" name="confirm_password"/>
 
                     <label className="label">Contratado Em</label>
@@ -130,7 +124,7 @@ function ManagerForm() {
 
                     <input type="hidden" name="is_active" value="true"></input>
 
-                    <input className="btn" type="submit" value="Submit"></input>
+                    <input className="btn" type="submit"  value="Cadastrar Gerente"></input>
                 </form>
             </div>
         </div>

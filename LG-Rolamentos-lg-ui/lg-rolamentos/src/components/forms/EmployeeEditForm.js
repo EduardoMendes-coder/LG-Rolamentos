@@ -162,7 +162,7 @@ export default function EmployeeEditForm() {
                 {successMessage()}
             </div>
             <div className="form">
-                <form action={"http://127.0.0.1:8000/edit/" + id + "/"} method="post">
+                <form action={"https://lg-rolamentos-api.herokuapp.com/edit/" + id + ""} method="post">
                     <input onChange={handleName} className="input"
                            value={name} type="text" name="name"
                            placeholder="Nome" />

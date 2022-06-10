@@ -121,7 +121,7 @@ function EmployeeForm() {
             </div>
             <h1 className="d-flex justify-content-center">Cadastro de Funcionários</h1>
             <div className="form">
-                <form action="http://127.0.0.1:8000/add/" method="post">
+                <form action="https://lg-rolamentos-api.herokuapp.com/add/" method="post">
                     <input onChange={handleName} className="form-control p-2"
                            value={name} type="text" name="name"
                            placeholder="Insira o Nome" />

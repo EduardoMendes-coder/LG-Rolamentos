@@ -6,7 +6,7 @@ let valorCotDolar = []
 let valorCotGuarani = []
 
 const getCotacaoDolar = () => {
-    const endpoint = 'http://127.0.0.1:8000/get-dollar-price';
+    const endpoint = 'https://lg-rolamentos-api.herokuapp.com/get-dollar-price';
     const response = axios.get(endpoint)
         .then((res) => setCotDolar(res.data.cotDolar))
         .catch((err) => {

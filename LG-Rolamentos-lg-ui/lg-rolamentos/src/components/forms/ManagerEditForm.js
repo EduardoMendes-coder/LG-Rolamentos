@@ -126,7 +126,7 @@ function ManagerEditForm() {
                 {successMessage()}
             </div>
             <div className="form">
-                <form action={"http://127.0.0.1:8000/edit-manager/" + id + "/"} method="post">
+                <form action={"https://lg-rolamentos-api.herokuapp.com/edit-manager/" + id + "/"} method="post">
                     <label className="label">Nome</label>
                     <input onChange={handleName} className="input"
                            value={name} type="text" name="name" />

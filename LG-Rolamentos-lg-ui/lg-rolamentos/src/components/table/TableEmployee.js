@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 let employees = []
 
 const getEmployeeList =  () => {
-    const endpoint = 'http://127.0.0.1:8000/list/';
+    const endpoint = 'https://lg-rolamentos-api.herokuapp.com/list/';
     const response =  axios.get(endpoint)
         .then((res) => setEmployees(res.data.Employees))
         .catch((err) => {

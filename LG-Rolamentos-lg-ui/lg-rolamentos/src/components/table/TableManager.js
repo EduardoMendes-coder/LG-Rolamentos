@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 let managers = []
 
 const getManagersList =  () => {
-    const endpoint = 'http://127.0.0.1:8000/list-manager/';
+    const endpoint = 'https://lg-rolamentos-api.herokuapp.com/list-manager/';
     const response =  axios.get(endpoint)
         .then((res) => setManagers(res.data.Managers))
         .catch((err) => {

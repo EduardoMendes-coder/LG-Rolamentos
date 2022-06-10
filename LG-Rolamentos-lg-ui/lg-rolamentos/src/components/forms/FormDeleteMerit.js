@@ -6,7 +6,7 @@ export default function FormInactiveManager(){
 
     return (
         <div className="formDelMerit">
-            <form className="formIn" action={"http://127.0.0.1:8000/delete-merit/" + id + "/"} method="post">
+            <form className="formIn" action={"https://lg-rolamentos-api.herokuapp.com/delete-merit/" + id + "/"} method="post">
                 <label className="label">Tem certeza que deseja excluir o mérito do funcionário {id} ?</label>
                 <input className="respostaInact" type="submit" value="Excluir"></input>
             </form>

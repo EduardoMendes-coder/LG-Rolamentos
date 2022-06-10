@@ -6,7 +6,7 @@ export default function FormInactiveManager(){
 
     return (
         <div className="formInacManager">
-            <form className="formIn" action={"http://127.0.0.1:8000/demit-manager/" + id + "/"} method="post">
+            <form className="formIn" action={"https://lg-rolamentos-api.herokuapp.com/demit-manager/" + id + "/"} method="post">
                 <label className="label">Tem certeza que deseja demitir o gerente {id} ?</label>
                 <input className="respostaInact" type="submit" value="Demitir"></input>
             </form>
