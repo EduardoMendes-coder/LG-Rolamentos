@@ -1,10 +1,53 @@
 body{
+    background-color: #d5d5d5;
+}
+
+.allconsulta h5{
+    font-size: 25px;
+    color: black;
+}
+
+.allconsulta p{
+    font-size: 20px;
+    color: rgb(56, 56, 56);
+}
+
+.viewConsulta{
     background-color: #f2f2f2;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 120vh;
+}
+
+.viewConsulta h5{
+    color: black;
 }
 
 .formconsultar{
     display: flex;
     justify-content: center;
     padding: 10px;
-    background-color: #f2f2f2;
+    background-color: #d5d5d5;
+}
+
+.datas{
+    background-color: white;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 400px;
+}
+
+.datas h5{
+    color: black;
+}
+
+.datas p{
+    color: rgb(67, 67, 67);
+}
+
+.info{
+    background-color: white;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 400px;
 }

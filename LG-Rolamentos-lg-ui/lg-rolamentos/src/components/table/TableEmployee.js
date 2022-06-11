@@ -41,6 +41,7 @@ function setEmployees(employeesAPI) {
       created_at: employeesAPI[i].created_at,
       updated_at: employeesAPI[i].updated_at,
     });
+
     if (employeesAPI[i].is_active === true) {
       actives += 1;
     } else if (employeesAPI[i].is_active === false) {
@@ -91,28 +92,29 @@ const TableEmployee = () => {
                     <span className="p-2 bg-warning rounded-circle d-inline-block ms-3"></span>
                   )}
                 </td>
+
                 <td>{tdata.hired_at}</td>
                 <td>
                   <div className="acoes">
-                    <Button className="acaoE consultar" outline>
+                    <Button className="consult" outline>
                       <Link
-                        className="linkForm"
+                        className="consult"
                         to={"/api/employee/formViewEmployee/" + tdata.id}
                       >
                         Consultar
                       </Link>
                     </Button>
-                    <Button className="acaoE editar" outline>
+                    <Button className="edit" outline>
                       <Link
-                        className="linkForm"
+                        className="edit"
                         to={"/api/employee/formEditEmployee/" + tdata.id}
                       >
                         Editar
                       </Link>
                     </Button>
-                    <Button className="acaoE demitir" outline>
+                    <Button className="demit" outline>
                       <Link
-                        className="linkForm"
+                        className="demit"
                         to={"/api/employee/formInactiveEmployee/" + tdata.id}
                       >
                         Demitir

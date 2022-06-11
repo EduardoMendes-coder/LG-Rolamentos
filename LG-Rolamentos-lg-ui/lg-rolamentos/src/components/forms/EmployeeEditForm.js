@@ -132,6 +132,8 @@ export default function EmployeeEditForm() {
     }
   };
 
+  var dateContrato = new Date(hiredAt);
+
   const successMessage = () => {
     return (
       <div
@@ -177,6 +179,7 @@ export default function EmployeeEditForm() {
             type="text"
             name="name"
             placeholder="Insira o Nome"
+            maxLength={50}
           />
           <FormText>Nome</FormText>
 
@@ -187,6 +190,7 @@ export default function EmployeeEditForm() {
             type="email"
             name="email"
             placeholder="Insira o Email"
+            maxLength={50}
           />
           <FormText>Email</FormText>
 
@@ -197,6 +201,7 @@ export default function EmployeeEditForm() {
             type="text"
             name="address"
             placeholder="Insira o Endereço"
+            maxLength={150}
           />
           <FormText>Endereço</FormText>
 
@@ -207,6 +212,7 @@ export default function EmployeeEditForm() {
             type="text"
             name="pis"
             placeholder="Insira o PIS"
+            maxLength={12}
           />
           <FormText>PIS</FormText>
 
@@ -233,6 +239,7 @@ export default function EmployeeEditForm() {
             value={role}
             type="text"
             name="role"
+            maxLength={30}
             placeholder="Insira o Cargo"
           />
           <FormText>Cargo</FormText>
@@ -244,6 +251,7 @@ export default function EmployeeEditForm() {
             type="number"
             name="rg"
             placeholder="Insira o RG"
+            maxLength={12}
           />
           <FormText>RG</FormText>
 
@@ -254,6 +262,7 @@ export default function EmployeeEditForm() {
             type="text"
             name="nationality"
             placeholder="Insira a Nacionalidade"
+            maxLength={50}
           />
           <FormText>Nacionalidade</FormText>
 
@@ -274,6 +283,7 @@ export default function EmployeeEditForm() {
             type="number"
             name="phone"
             placeholder="Insira o Telefone"
+            maxLength={20}
           />
           <FormText>Telefone</FormText>
 
@@ -285,7 +295,10 @@ export default function EmployeeEditForm() {
             type="date"
             name="hired_at"
           />
-          <FormText>Contrado Em ({hiredAt})</FormText>
+          <FormText>
+            Contratado no dia {dateContrato.getUTCDate()} do mês{" "}
+            {dateContrato.getUTCMonth() + 1} de {dateContrato.getUTCFullYear()}
+          </FormText>
 
           <input
             onChange={handleIsActive}

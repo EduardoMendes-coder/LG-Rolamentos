@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import "./EmployeeViewForm.css";
+import userImg from "../img/AvatarUser.png";
 
 function EmployeeForm() {
   const { id } = useParams();
@@ -8,6 +9,8 @@ function EmployeeForm() {
   let email;
   let address;
   let pis;
+  let salary;
+  let rg;
   let hiredAt;
   let createdAt;
   let updatedAt;
@@ -21,6 +24,8 @@ function EmployeeForm() {
       email = employees[i].email;
       address = employees[i].address;
       pis = employees[i].pis;
+      salary = employees[i].salary;
+      rg = employees[i].rg;
       hiredAt = employees[i].hired_at;
       createdAt = employees[i].created_at;
       updatedAt = employees[i].updated_at;
@@ -28,23 +33,79 @@ function EmployeeForm() {
     }
   }
 
+  let dateContrato = new Date(hiredAt);
+  let dateCadastro = new Date(createdAt);
+
+  let dateAtualizado = new Date(updatedAt);
+  let atualizadoDay = dateAtualizado.getUTCDate();
+  let atualizadoMonth = dateAtualizado.getUTCMonth() + 1;
+  let atualizadoYear = dateAtualizado.getUTCFullYear();
+
+  if (updatedAt == null) {
+    atualizadoDay = "";
+    atualizadoMonth = "";
+    atualizadoYear = "";
+  }
+
   return (
-    <div className="consulta">
+    <div className="consulta ps-5">
       <div className="messages"></div>
-      <h1 className="d-flex justify-content-center">
-        Cadastro de Funcionários
+      <h1 className="d-flex justify-content-center align-items-center">
+        Consulta de Funcionários
       </h1>
       <div className="formconsultar">
         <form action="/" method="get">
-          <p>id = {id}</p>
-          <p>nome = {name}</p>
-          <p>email = {email}</p>
-          <p>endereço = {address}</p>
-          <p>pis = {pis}</p>
-          <p>contratado em = {hiredAt}</p>
-          <p>cadastrado em = {createdAt}</p>
-          <p>atualizado em = {updatedAt}</p>
-          <input className="btn" type="submit" value="Voltar"></input>
+          <div className="viewConsulta text-center p-4">
+            <img
+              className="mb-3"
+              src={userImg}
+              style={{ width: "120px" }}
+            ></img>
+            <h5 className="pb-1">{name.toUpperCase()}</h5>
+            <hr className="mb-4" size="4" width="100%" />
+            <div className="allconsulta d-flex">
+              <div className="info m-2 text-center">
+                <h5 className="pt-3">Informações</h5>
+
+                <p className="pt-2 fw-bold">Nome</p>
+                <p>{name}</p>
+
+                <p className="pt-2 fw-bold">Email</p>
+                <p>{email}</p>
+
+                <p className="pt-2 fw-bold">Endereço</p>
+                <p>{address}</p>
+
+                <p className="pt-2 fw-bold">Registro Geral</p>
+                <p>{rg}</p>
+
+                <p className="pt-2 fw-bold">PIS</p>
+                <p>{pis}</p>
+
+                <p className="pt-2 fw-bold">Salário</p>
+                <p>{salary}</p>
+              </div>
+              <div className="datas m-2 text-center">
+                <h5 className="pt-3">Datas</h5>
+                <p className="p-3">
+                  Contratado no dia {dateContrato.getUTCDate()} do mês{" "}
+                  {dateContrato.getUTCMonth() + 1} de{" "}
+                  {dateContrato.getUTCFullYear()}
+                </p>
+                <p className="p-3">
+                  Cadastrado no dia {dateCadastro.getUTCDate()} do mês{" "}
+                  {dateCadastro.getUTCMonth() + 1} de{" "}
+                  {dateCadastro.getUTCFullYear()}
+                </p>
+                <p className="p-3">
+                  Atualizado no dia {atualizadoDay} do mês {atualizadoMonth} de{" "}
+                  {atualizadoYear}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <input className="btn mt-5" type="submit" value="Voltar"></input>
         </form>
       </div>
     </div>
