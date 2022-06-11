@@ -14,16 +14,39 @@
 }
 
 .cardDolar{
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 250px;
 }
 
 .cardGuarani{
-    background-color: dodgerblue;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 250px;
 }
 
 .valMoedas{
     display: flex;
     justify-content: center;
+}
+
+.text-center h6{
+    color: rgb(109, 109, 109);
+}
+
+.text-center h4{
+    font-weight: bolder;
+}
+
+.text-center h5{
+    font-weight: bolder;
+    color: rgb(0, 60, 255);
+}
+
+.text-center hr{
+    margin-top: 15px;
 }

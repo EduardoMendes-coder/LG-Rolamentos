@@ -1,0 +1,10 @@
+body{
+    background-color: #f2f2f2;
+}
+
+.formconsultar{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
