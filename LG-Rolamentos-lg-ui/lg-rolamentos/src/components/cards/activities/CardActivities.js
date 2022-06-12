@@ -12,7 +12,7 @@ function CardActivities() {
   return (
     <div className="cont">
       <h1 className="fw-bold">Controle de Atividades</h1>
-      <div className="fundo mt-3">
+      <div className="fundo mt-1">
         <Link className="butt buttFaltas" to="/api/activities/presenceControl">
           <Card className="act cardFaltas">
             <h4 className="text textFaltas">Faltas </h4>

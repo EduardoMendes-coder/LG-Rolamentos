@@ -23,8 +23,10 @@ function PresenceControlView() {
   };
 
   return (
-    <div>
-      <div className="form">
+    <div className="formPresence">
+      
+      <div className="formPresence">
+        <h1 className="d-flex justify-content-center">Controle de Presença</h1>
         <form
           action={
             "https://lg-rolamentos-api.herokuapp.com/get-presences/" +
@@ -37,7 +39,7 @@ function PresenceControlView() {
           method="get"
         >
           <label className="label">Funcionarios</label>
-          <div>
+          <div className="Pesquisa">
             <select
               className="form-select"
               onChange={handleEmployeeId}
@@ -53,29 +55,56 @@ function PresenceControlView() {
                   <h6 className="mb-0">{tdata.name}</h6>
                 </option>
               ))}
+              </select>
+          </div>
+          <div>
+              <label className="label">Presença</label>
+              <select className="form-select p-2" name="Presence">
+                <option  name="Presence">
+                  Manhã
+                </option>
+                <option  name="Presence">
+                  Não compareceu
+                </option>
+                <option  name="Presence">
+                  Tarde
+                </option>
             </select>
           </div>
-          <label>De</label>
-          <input
-            onChange={handleFromDate}
-            className="input"
-            value={fromDate}
-            type="date"
-            name="start_date"
-            data-date=""
-            data-date-format="DD MMMM YYYY"
-          ></input>
-          <lable>Ate</lable>
-          <input
-            onChange={handleToDate}
-            className="input"
-            value={toDate}
-            type="date"
-            name="end_date"
-            data-date=""
-            data-date-format="DD MMMM YYYY"
-          ></input>
-          <input className="btn" type="submit" value="Pesquisar"></input>
+          <div>
+            <label className="label">Descontos</label>
+              <select className="form-select p-2" name="descDia">
+                <option  name="descDia">
+                  Descontar Dia
+                </option>
+                <option  name="descDia">
+                  Não Descontar
+                </option>
+                <option  name="descDia">
+                  Descontar Metade
+                </option>
+            </select>
+          </div>
+          <div>
+            <label className="label">Justificativa</label>
+            <input type="text" name="Justificativa" className="Justificativa"></input>
+          </div>
+          <div>
+            <input
+              onChange={handleFromDate}
+              className="dt_Presenca"
+              value={fromDate}
+              type="date"
+              name="start_date"
+              data-date=""
+              data-date-format="DD MMMM YYYY"
+              placeholder="data"
+            ></input>
+          </div>
+
+
+        
+          <input className="btnPresence" type="submit" value="Pesquisar"></input>
         </form>
       </div>
     </div>
