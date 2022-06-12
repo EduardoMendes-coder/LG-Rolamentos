@@ -21,7 +21,7 @@
 }
 
 .cardFaltas{
-    display: flex;
+    
     color: white;
     background-color: blueviolet;
     flex-direction: column;
@@ -30,7 +30,7 @@
 }
 
 .cardMeritos{
-    display: flex;
+    
     color: white;
     background-color: green;
     flex-direction: column;
@@ -39,7 +39,7 @@
 }
 
 .cardAdvertencia{
-    display: flex;
+   
     color: white;
     background-color: red;
     flex-direction: column;
@@ -48,7 +48,6 @@
 }
 
 .cardRelatorio{
-    display: flex;
     color: white;
     background-color: rgb(0, 149, 255);
     flex-direction: column;
@@ -72,8 +71,9 @@
 }
 
 .fundo{
-    background-color: white;
+    background-color: rgb(231, 229, 229);
     border-radius: 20px;
     box-shadow: 2px 2px 5px rgb(76, 76, 76);
+    flex-direction: row;
 }
 

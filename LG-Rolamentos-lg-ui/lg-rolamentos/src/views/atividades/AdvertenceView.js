@@ -4,7 +4,7 @@ import TableAdvertence from "../../components/table/TableAdvertence";
 function AdvertenceView(){
     return(
         <div className="contAdvertence">
-
+            <TableAdvertence/>
         </div>
     )
 }
