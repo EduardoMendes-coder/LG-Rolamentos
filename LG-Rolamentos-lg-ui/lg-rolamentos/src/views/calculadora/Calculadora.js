@@ -56,7 +56,9 @@ function Calculadora() {
 
           <div className="resultado mt-3 d-flex flex-column align-items-center">
             <h2>{resultadoFormatado}</h2>
-            <FormText>Resultado da adição no valor</FormText>
+            <FormText>
+              Resultado da adição de {porcentagem}% no valor de {valor}
+            </FormText>
           </div>
         </form>
       </div>
