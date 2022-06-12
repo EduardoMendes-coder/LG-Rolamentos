@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./EmployeeEditForm.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router";
-import { FormText } from "reactstrap";
+import { Alert, FormText } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function EmployeeEditForm() {
   const { id } = useParams();
@@ -313,6 +314,7 @@ export default function EmployeeEditForm() {
             className="btn mt-4"
             type="submit"
             value="Salvar Edição"
+            to={"/"}
           ></input>
         </form>
       </div>
