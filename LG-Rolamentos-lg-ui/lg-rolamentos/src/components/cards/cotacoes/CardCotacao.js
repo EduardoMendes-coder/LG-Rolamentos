@@ -44,7 +44,7 @@ const newValorGuarani = JSON.parse(localStorage.getItem("valorCotGs"));
 
 function CardCotacao() {
   return (
-    <div className="cotacoes d-flex justify-content-center">
+    <div className="cotacoes d-flex justify-content-center me-5">
       <Card className="card cardDolar d-flex justify-content-center align-items-center flex-column">
         <div className="USD mt-2">
           <img

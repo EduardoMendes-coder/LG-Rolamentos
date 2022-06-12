@@ -1,7 +1,6 @@
-import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
+import { CardBody, Table } from "reactstrap";
 import "./TableEmployee.css";
 import CardStatusEmployee from "../cards/status/CardStatusEmployee";
-import CardCotacao from "../cards/cotacoes/CardCotacao";
 import axios from "axios";
 import InsertEmployee from "../buttons/InsertEmployee";
 import { Button } from "reactstrap";
@@ -59,7 +58,6 @@ const new_employees = JSON.parse(localStorage.getItem("employees"));
 const TableEmployee = () => {
   return (
     <div className="containerMain">
-      <CardCotacao />
       <CardStatusEmployee />
       <InsertEmployee />
       <CardBody>
