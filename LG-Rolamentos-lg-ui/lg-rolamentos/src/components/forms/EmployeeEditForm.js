@@ -161,7 +161,7 @@ export default function EmployeeEditForm() {
   };
 
   return (
-    <div className="edit d-flex justify-content-center flex-column">
+    <div className="editeform d-flex justify-content-center flex-column">
       <div className="messages">
         {errorMessage()}
         {successMessage()}
