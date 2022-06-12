@@ -5,13 +5,10 @@
 }
 
 .cardInfoManager{
-    background-color: rgb(236, 230, 230);
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 3px rgb(168, 168, 168);
     border-radius: 20px;
     justify-content: center;
-}
-
-.cardStatusManager{
 }
 
 .cardAtivoManager{

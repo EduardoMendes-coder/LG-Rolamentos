@@ -53,13 +53,11 @@ const Sidebar = () => {
             </NavLink>
             <NavLink
               exact
-              to="/api/dashboard"
+              to="/api/cotacao"
               activeClassName="activeClicked"
               onClick="window.location.reload()"
             >
-              <CDBSidebarMenuItem icon="chart-line">
-                Dashboard
-              </CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="chart-line">Cotação</CDBSidebarMenuItem>
             </NavLink>
             <NavLink
               exact
