@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import css from "./ManagerForm.css";
 import { useParams } from 'react-router';
-
+import userImg from "../img/AvatarUser.png";
+import "./ManagerViewForm.css";
 function ManagerForm() {
     const { id } = useParams();
     let name;
@@ -29,26 +29,55 @@ function ManagerForm() {
             break;
         }
     }
+    let dateContrato = new Date(hiredAt);
+    let dateCadastro = new Date(createdAt);
+    let dateAtualizado = new Date(updatedAt);
 
     return (
-        <div>
-            <div className="messages">
-            </div>
-            <div className="form">
-                <form action="/api/manager/" method="get">
-                    <p>id = {id}</p>
-                    <p>nome = {name}</p>
-                    <p>usuario = {user}</p>
-                    <p>email = {email}</p>
-                    <p>endereço = {address}</p>
-                    <p>pis = {pis}</p>
-                    <p>contratado em = {hiredAt}</p>
-                    <p>cadastrado em = {createdAt}</p>
-                    <p>atualizado em = {updatedAt}</p>
-                    <input className="btn" type="submit" value="Voltar"></input>
+        <div className='consultaGerente ps-5'>
+            <div className='messages'></div>
+            <div className='formconsultarGerente'>
+                <form action='/api/manager' method='get'>
+                    <div className='viewConsultaGerente text-center p-4'>
+                        <img className='mb-3'
+                            src={userImg}
+                            style={{ width: "120px" }}
+                        ></img>
+                        <h5 className='pb-1'>{name.toUpperCase()}</h5>
+                        <hr className='mb-4' size='4' width="100%"></hr>
+                        <div className='allconsultaGerente d-flex'>
+                            <div className='infoGerente m-2 text-center'>
+                                <h5 className='pt-3'>Informações do Gerente</h5>
+                                <p className="pt-2 fw-bold">Nome</p>
+                                <p>{name}</p>
+                                <p className="pt-2 fw-bold">Email</p>
+                                <p>{email}</p>
+                                <p className="pt-2 fw-bold">Endereço</p>
+                                <p>{address}</p>
+                                <p className="pt-2 fw-bold">PIS</p>
+                                <p>{pis}</p>
+                            </div>
+                            <div className='datasGerente m-2 text-center'>
+                                <h5 className='pt-3'>Datas</h5>
+                                <p className='p-3'>
+                                    Contratado no dia {dateContrato.getUTCDate()} do mês {" "}
+                                    {dateContrato.getUTCMonth() + 1} de {" "}
+                                    {dateContrato.getFullYear()}
+                                </p>
+                                <p className="p-3">
+                                    Cadastrado no dia {dateCadastro.getUTCDate()} do mês{" "}
+                                    {dateCadastro.getUTCMonth() + 1} de{" "}
+                                    {dateCadastro.getUTCFullYear()}
+                                </p>
+                            </div>
+                        </div>
+                        <input className="btn mt-5" type="submit" value="Voltar"></input>
+                    </div>
                 </form>
+
             </div>
-        </div>
+
+       </div>
     );
 }
 
