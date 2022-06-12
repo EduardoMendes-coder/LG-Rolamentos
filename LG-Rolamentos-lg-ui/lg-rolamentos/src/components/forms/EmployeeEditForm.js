@@ -2,8 +2,7 @@ import { useState } from "react";
 import "./EmployeeEditForm.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router";
-import { Alert, FormText } from "reactstrap";
-import { Link } from "react-router-dom";
+import { FormText } from "reactstrap";
 
 export default function EmployeeEditForm() {
   const { id } = useParams();

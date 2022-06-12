@@ -21,6 +21,15 @@
     transition: 2s;
     box-shadow: 10px 5px 5px rgb(42, 42, 42);
 }
+.sairbutton{
+    text-decoration: none;
+    color: white;
+}
+
+.sairbutton:hover{
+    text-decoration: none;
+    color: white;
+}
 
 
 

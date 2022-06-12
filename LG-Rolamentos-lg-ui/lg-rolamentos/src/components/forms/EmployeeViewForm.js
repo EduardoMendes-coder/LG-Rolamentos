@@ -103,9 +103,8 @@ function EmployeeForm() {
                 </p>
               </div>
             </div>
+            <input className="btn mt-5" type="submit" value="Voltar"></input>
           </div>
-
-          <input className="btn mt-5" type="submit" value="Voltar"></input>
         </form>
       </div>
     </div>

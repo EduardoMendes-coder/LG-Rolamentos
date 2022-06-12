@@ -51,7 +51,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="App">
+      <div className="loginall">
         <div className="md-5 d-flex flex-column align-items-center">
           <img src={logo} alt="Logo" style={{ width: "600px" }} />
           <Form
@@ -67,6 +67,7 @@ class Login extends Component {
           >
             <FormGroup>
               <Input
+                className="in"
                 type="email"
                 name="email"
                 id="exampleEmail"
@@ -88,6 +89,7 @@ class Login extends Component {
             </FormGroup>
             <FormGroup className="mt-2">
               <Input
+                className="in"
                 placeholder="Senha"
                 type="password"
                 name="password"
