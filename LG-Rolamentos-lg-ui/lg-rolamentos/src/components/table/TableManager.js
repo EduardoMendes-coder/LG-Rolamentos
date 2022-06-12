@@ -92,14 +92,14 @@ const TableManager = () => {
                             <td>{tdata.hired_at}</td>
                             <td>
                                 <div className="acoes">
-                                    <Button className="acao consultar" outline>
-                                        <Link className="linkForm" to={"/api/manager/formViewManager/" + tdata.id}>Consultar</Link>
+                                    <Button className="consult" outline>
+                                        <Link className="consult" to={"/api/manager/formViewManager/" + tdata.id}>Consultar</Link>
                                     </Button>
-                                    <Button className="acao editar" outline>
-                                        <Link className="linkForm" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
+                                    <Button className="edit" outline>
+                                        <Link className="edit" to={"/api/manager/formEditManager/" + tdata.id}>Editar</Link>
                                     </Button>
-                                    <Button className="acao demitir" outline >
-                                        <Link className="linkForm" to={"/api/manager/formInactiveManager/" + tdata.id}>Demitir</Link>
+                                    <Button className="demit" outline >
+                                        <Link className="demit" to={"/api/manager/formInactiveManager/" + tdata.id}>Demitir</Link>
                                     </Button>
                                 </div>
                             </td>

@@ -1,18 +1,17 @@
 .textosManager{
     display: flex;
-    flex-direction: column;
-    width: 300px;
+    flex-direction: row;
+    width: 100px;
 }
 
 .cardInfoManager{
-    display: flex;
-    justify-content: space-between;
+    background-color: rgb(236, 230, 230);
+    box-shadow: 1px 1px 3px rgb(168, 168, 168);
+    border-radius: 20px;
+    justify-content: center;
 }
 
 .cardStatusManager{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
 }
 
 .cardAtivoManager{
@@ -26,7 +25,9 @@
 .cardMan{
     width: 250px;
     height: 120px;
-    color: white;
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
+    
 }
 
 .numSM{

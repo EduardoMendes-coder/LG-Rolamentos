@@ -125,41 +125,41 @@ function ManagerEditForm() {
                 {errorMessage()}
                 {successMessage()}
             </div>
+             <h1 className="d-flex justify-content-center">Editar Gerente</h1>
             <div className="form">
                 <form action={"https://lg-rolamentos-api.herokuapp.com/edit-manager/" + id + "/"} method="post">
-                    <label className="label">Nome</label>
+                   
                     <input onChange={handleName} className="input"
-                           value={name} type="text" name="name" />
-
+                           value={name} type="text" name="name" placeholder='Nome' />
+                    <label></label>
                     <input onChange={handleEmail} className="input"
-                           value={email} type="hidden" name="email"/>
+                           value={email} type="hidden" name="email" placeholder='Email'/>
 
-                    <label className="label">Endereço</label>
+                    <label></label>
                     <input onChange={handleAddress} className="input"
-                           value={address} type="text" name="address"/>
+                           value={address} type="text" name="address" placeholder='Endereço'/>
 
-                    <label className="label">PIS</label>
+                    <label></label>
                     <input onChange={handlePis} className="input"
-                           value={pis} type="text" name="pis"/>
+                           value={pis} type="text" name="pis" placeholder='PIS'/>
 
-                    <label className="label">Usuario</label>
+                    <label></label>
                     <input onChange={handleUser} className="input"
-                           value={user} type="text" name="user"/>
+                           value={user} type="text" name="user" placeholder='Usuario'/>
 
-                    <label className="label">Senha</label>
+                    <label></label>
                     <input onChange={handlePassword} className="input"
-                           type="password" name="password" />
-
-                    <label className="label">Nova Senha </label>
+                           type="password" name="password" placeholder='Senha' />
+                    <label></label>
                     <input onChange={handleNewPassword} className="input"
-                           type="password" name="new_password"/>
+                           type="password" name="new_password" placeholder='Nova senha'/>
 
                     <input onChange={handleHiredAt} className="input"
                            value={hiredAt} type="hidden" name="hired_at"/>
 
                     <input onChange={handleIsActive} type="hidden" name="is_active" value={old_is_active}></input>
 
-                    <input className="btn" type="submit" value="Submit"></input>
+                    <input className="btn" type="submit" value="Editar Gerente"></input>
 
                 </form>
             </div>

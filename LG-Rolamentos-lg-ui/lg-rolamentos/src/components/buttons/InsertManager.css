@@ -6,17 +6,26 @@
 }
 
 .mainDiv{
-    display: flex;
-    margin-right: 245px;
-    justify-content: flex-end;
+   margin: 0px !important;
 }
 
 .insert{
-    background-color: green !important;
-    color: white !important;
+    background-color: rgb(60, 124, 219);
+    color: white;
+    border-radius: 100px !important;
+    width: 125px !important;
+    height: 125px !important;
 }
 
 .linkForm{
     color: white;
     text-decoration: none;
+}
+.linkFormGerente{
+    font-size: 120px;
+    text-decoration: none;
+    color: white;
+}
+.linkFormGerente:hover{
+    color: white;
 }

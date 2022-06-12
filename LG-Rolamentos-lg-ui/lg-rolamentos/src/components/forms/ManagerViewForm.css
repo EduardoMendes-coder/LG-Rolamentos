@@ -1,0 +1,48 @@
+body{
+    background-color: #d5d5d5;
+}
+.allconsultaGerente h5{
+    font-size: 25px;
+    color: black;
+}
+.allconsultaGerente p{
+    font-size: 20px;
+    color: rgb(56, 56, 56);
+}
+.viewConsultaGerente{
+    background-color: #f2f2f2;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 120vh;
+}
+.viewConsultaGerente h5{
+    color: black;
+}
+.formconsultarGerente{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #d5d5d5;
+}
+.datasGerente{
+    background-color: white;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 400px;
+}
+
+.datasGerente h5 {
+    color: black;
+}
+
+.datasGerente p {
+    color: rgb(67, 67, 67);
+}
+
+
+.infoGerente {
+    background-color: white;
+    box-shadow: 2px 3px 5px rgb(168, 168, 168);
+    border-radius: 20px;
+    width: 400px;
+}
