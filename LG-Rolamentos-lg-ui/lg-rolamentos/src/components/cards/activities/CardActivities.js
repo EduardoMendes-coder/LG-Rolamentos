@@ -22,12 +22,12 @@ function CardActivities() {
 
         <Link className="butt buttMerits" to="/api/activities/merits">
           <Card className="act cardMeritos">
-            <h4 className="text textMerits">Mérito</h4>
+            <h4 className="text textMerits">Atividades</h4>
             <BiMedal className="iconAct iconMerit" />
           </Card>
         </Link>
 
-        <Link className="butt buttAdvertence" to="/api/activities/advertences">
+        {/* <Link className="butt buttAdvertence" to="/api/activities/advertences">
           <Card className="act cardAdvertencia">
             <h4 className="text textAdvertence">Advertência</h4>
             <BiXCircle className="iconAct iconAdvert" />
@@ -39,7 +39,7 @@ function CardActivities() {
             <h4 className="text textReport">Relatório</h4>
             <BiBookmarkAltMinus className="iconAct iconReoirt" />
           </Card>
-        </Link>
+  </Link> */}
       </div>
     </div>
   );

@@ -63,24 +63,18 @@ const TableMerits = () => {
                 <td>{tdata.created_at}</td>
                 <td>
                   <div className="acoes">
-                    <Button className="acao consultar" outline>
-                      <Link
-                        className="linkForm"
-                        to={"/api/activities/merits/formViewMerit/" + tdata.id}
-                      >
-                        Consultar
-                      </Link>
-                    </Button>
-                    <Button className="acao demitir" outline>
-                      <Link
-                        className="linkForm"
-                        to={
-                          "/api/activities/merits/formDeleteMerit/" + tdata.id
-                        }
-                      >
-                        Excluir
-                      </Link>
-                    </Button>
+                    <Link
+                      className="linkForm"
+                      to={"/api/activities/merits/formViewMerit/" + tdata.id}
+                    >
+                      <Button className="acao consultar">Consultar</Button>
+                    </Link>
+                    <Link
+                      className="linkForm ms-2"
+                      to={"/api/activities/merits/formDeleteMerit/" + tdata.id}
+                    >
+                      <Button className="acao demitir">Desativar</Button>
+                    </Link>
                   </div>
                 </td>
               </tr>

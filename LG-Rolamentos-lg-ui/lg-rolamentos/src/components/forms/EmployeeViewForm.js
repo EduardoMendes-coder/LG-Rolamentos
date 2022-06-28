@@ -49,7 +49,6 @@ function EmployeeForm() {
 
   return (
     <div className="consulta ps-5">
-      <div className="messages"></div>
       <h1 className="d-flex justify-content-center align-items-center">
         Consulta de Funcionários
       </h1>
