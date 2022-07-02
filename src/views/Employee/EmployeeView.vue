@@ -3,7 +3,7 @@
   <div
     class="buttons is-flex is-flex-direction-column is-justify-content-space-around m-2"
   >
-    <router-link class="btn-cad" to="/secretaria/cadastrar"
+    <router-link class="btn-cad" to="/employee/cadastrar"
       ><button class="btn-cadastrar mb-4">
         Cadastrar Funcionário
       </button></router-link
@@ -48,28 +48,20 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
-import { PageRequest } from "@/model/page/page-request";
-import { PageResponse } from "@/model/page/page-response";
 import { Employee } from "@/model/employee.model";
 import { EmployeeClient } from "@/client/employee.client";
 
 export default class ExployeeView extends Vue {
-  private pageRequest: PageRequest = new PageRequest();
-  private pageResponse: PageResponse<Employee> = new PageResponse();
   public employeeList: Employee[] = [];
   public employee: Employee = new Employee();
   private employeeClient!: EmployeeClient;
   public mounted(): void {
     this.employeeClient = new EmployeeClient();
     this.listarEmployee();
+    console.log(this.employeeClient.findByFiltrosPaginado())
   }
   private listarEmployee(): void {
-    this.employeeClient.findByFiltrosPaginado(this.pageRequest).then(
-      (success) => {
-        this.pageResponse = success;
-        this.employeeList = this.pageResponse.content;
-      },
-      (error) => console.log(error)
+    this.employeeClient.findByFiltrosPaginado().then(
     );
   }
 }

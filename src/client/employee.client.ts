@@ -10,7 +10,7 @@ export class EmployeeClient {
 
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'https://lg-rolamentos-api.herokuapp.com',
+            baseURL: 'http://127.0.0.1:8000/api/employee',
             headers: {'Content-type' : 'application/json'}
         });
     }
@@ -41,25 +41,18 @@ export class EmployeeClient {
 
 	public async desativar(employee: Employee): Promise<void> {
 		try {
-			return (await this.axiosClient.put(`/desativar/${employee.id}`, employee)).data
+			return (await this.axiosClient.put(`/demit/${employee.id}`, employee)).data
 		} catch (error:any) {
 			return Promise.reject(error.response)
 		}
 	}
 
-  public async findByFiltrosPaginado(pageRequest: PageRequest): Promise<PageResponse<Employee>> {
+  public async findByFiltrosPaginado(): Promise<Employee> {
 		try {
-			let requestPath = ''
 
-			requestPath += `?page=${pageRequest.currentPage}`
-			requestPath += `&size=${pageRequest.pageSize}`
-			requestPath += `&sort=${pageRequest.sortField === undefined ? '' : pageRequest.sortField},${pageRequest.direction}`
-
-			return (await this.axiosClient.get<PageResponse<Employee>>(requestPath, { params: { filtros: pageRequest.filter } })).data
+			return (await this.axiosClient.get(`/list/`)).data
 		} catch (error:any) { 
 			return Promise.reject(error.response) 
 		}
 	}
-
-
 }
