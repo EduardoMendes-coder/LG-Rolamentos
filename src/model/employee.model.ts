@@ -1,6 +1,7 @@
 import {Role} from "./role.model"
 import {Sex} from "./sex.enum"
 export class Employee {
+    id! : number
     name! : string
     age! : number
     email! : string
