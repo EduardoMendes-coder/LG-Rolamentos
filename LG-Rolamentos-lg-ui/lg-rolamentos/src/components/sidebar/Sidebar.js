@@ -77,19 +77,7 @@ const Sidebar = () => {
             style={{
               padding: "20px 5px",
             }}
-          >
-            <Button className="sair">
-              <NavLink
-                className="sairbutton"
-                exact
-                to="/api/login"
-                activeClassName="activeClicked"
-                onClick="window.location.reload()"
-              >
-                Sair
-              </NavLink>
-            </Button>
-          </div>
+          ></div>
         </CDBSidebarFooter>
       </CDBSidebar>
     </div>

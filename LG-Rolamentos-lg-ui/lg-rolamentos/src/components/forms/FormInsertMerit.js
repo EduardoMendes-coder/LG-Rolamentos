@@ -5,7 +5,7 @@ function FormInsertMerit() {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
-  const [employee, setEmployee] = useState("");
+  let [employee, setEmployee] = useState("");
   const [manager, setManager] = useState("");
   const [note, setNote] = useState("");
 
@@ -85,7 +85,7 @@ function FormInsertMerit() {
             value={name}
             type="text"
             name="name"
-            placeholder="Insira a Atividade (Mérito ou Advertência)"
+            placeholder="Insira a Atividade (Mérito | Advertência | Falta)"
           />
 
           <input

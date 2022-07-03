@@ -3,16 +3,12 @@ import "./App.css";
 import Sidebar from "./components/sidebar/Sidebar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./views/home/Home";
-import Logon from "./views/login/Login.js";
 import Calculadora from "./views/calculadora/Calculadora.js";
 import Cotacao from "./views/cotacao/Cotacao.js";
 import ManagerView from "./views/manager/ManagerView";
 import EmployeeForm from "./components/forms/EmployeeForm";
 import ManagerForm from "./components/forms/ManagerForm";
-import ActivityView from "./views/atividades/ActivityView";
 import MeritsView from "./views/atividades/MeritsView";
-import AdvertenceView from "./views/atividades/AdvertenceView";
-import PresenceControlView from "./views/atividades/PresenceControlView";
 import ManagerViewForm from "./components/forms/ManagerViewForm";
 import ManagerEditForm from "./components/forms/ManagerEditForm";
 import EmployeeViewForm from "./components/forms/EmployeeViewForm";
@@ -21,7 +17,6 @@ import FormInactiveEmployee from "../src/components/forms/FormInactiveEmployee";
 import FormInactiveManager from "../src/components/forms/FormInactiveManager";
 import FormInsertMerit from "../src/components/forms/FormInsertMerit";
 import FormViewMerit from "../src/components/forms/FormViewMerit";
-import FormDeleteMerit from "../src/components/forms/FormDeleteMerit";
 
 function App() {
   return (
@@ -32,7 +27,6 @@ function App() {
         <Route path="/api/manager" element={<ManagerView />} />
         <Route path="/api/calculadora" element={<Calculadora />} />
         <Route path="/api/cotacao" element={<Cotacao />} />
-        <Route path="/api/login" element={<Logon />} />
         <Route
           path="/api/employee/formInsertEmployee"
           element={<EmployeeForm />}
@@ -41,16 +35,7 @@ function App() {
           path="/api/manager/formInsertManager"
           element={<ManagerForm />}
         />
-        <Route path="/api/activities" element={<ActivityView />} />
-        <Route path="/api/activities/merits" element={<MeritsView />} />
-        <Route
-          path="/api/activities/advertences"
-          element={<AdvertenceView />}
-        />
-        <Route
-          path="/api/activities/presenceControl"
-          element={<PresenceControlView />}
-        />
+        <Route path="/api/activities" element={<MeritsView />} />
         <Route
           path="/api/manager/formViewManager/:id"
           element={<ManagerViewForm />}
@@ -82,10 +67,6 @@ function App() {
         <Route
           path="/api/activities/merits/formViewMerit/:id"
           element={<FormViewMerit />}
-        />
-        <Route
-          path="/api/activities/merits/formDeleteMerit/:id"
-          element={<FormDeleteMerit />}
         />
       </Routes>
     </Router>
